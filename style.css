@@ -193,8 +193,9 @@ a {
 .hero-figure img {
   width: auto;
   max-width: 100%;
-  max-height: clamp(350px, 70vh, 90vh);
-  min-height: clamp(300px, 55vh, 550px);
+  /* Increased size "very well" as requested */
+  max-height: clamp(400px, 85vh, 100vh);
+  min-height: clamp(350px, 60vh, 700px);
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
 }
