@@ -181,7 +181,8 @@ a {
 }
 
 .hero-figure {
-  flex: 1;
+  flex: 2;
+  /* Maximize space for image */
   display: flex;
   /* Centered image to reduce gap to text */
   justify-content: center;
@@ -193,9 +194,12 @@ a {
 .hero-figure img {
   width: auto;
   max-width: 100%;
-  /* Increased size "very well" as requested */
-  max-height: clamp(400px, 85vh, 100vh);
-  min-height: clamp(350px, 60vh, 700px);
+  /* Aggressively increased size as requested */
+  max-height: clamp(500px, 110vh, 150vh);
+  min-height: clamp(450px, 80vh, 1000px);
+  transform: scale(1.2);
+  transform-origin: bottom center;
+  transform-origin: bottom center;
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
 }
