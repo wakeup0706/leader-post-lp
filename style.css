@@ -164,7 +164,7 @@ section {
   .hero-content {
     position: relative;
     padding: 24px 16px 0 16px;
-    height: 560px;
+    height: 420px;
     /* Stable height for poster composition */
     display: flex;
     flex-direction: column;
@@ -263,7 +263,7 @@ section {
 
 .hero-underline {
   width: 100%;
-  max-width: 320px;
+  max-width: 220px;
   /* Fixed width to match '知らないだけです。' roughly */
   height: clamp(3px, 0.4vw, 4px);
   background-color: #b80407;
@@ -449,7 +449,7 @@ section {
 }
 
 .problem-title {
-  font-size: clamp(24px, 4.5vw, 48px);
+  font-size: clamp(54px, 4.5vw, 98px);
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 900;
   line-height: 1.2;
@@ -461,7 +461,7 @@ section {
 }
 
 .problem-subtitle {
-  font-size: clamp(18px, 3.5vw, 36px);
+  font-size: clamp(38px, 3.5vw, 76px);
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 500;
   line-height: 1.4;
@@ -503,20 +503,67 @@ section {
 }
 
 /* Problem Section Arrow - Refined to overlap */
-.problem-v-arrow {
+.problem-v-wrap {
   position: absolute;
   top: -5px;
-  /* Pull up to top of card */
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 30px solid #ffffff;
-  z-index: 10;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  z-index: 30;
 }
+
+/* SHADOW TRIANGLE (KEY PART) */
+/* SHADOW TRIANGLE */
+.problem-v-shadow {
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 55px solid rgba(0, 0, 0, 0.78);
+
+  filter: blur(10px);
+  z-index: 1;
+}
+
+/* BACK TRIANGLE */
+.problem-v-back {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-top: 55px solid #e1dcdc;
+
+  z-index: 2;
+}
+
+/* FRONT TRIANGLE */
+.problem-v-front {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-top: 55px solid #ffffff;
+
+  z-index: 3;
+}
+
 
 .problem-list-container {
   padding: 60px 16px 40px 16px;
@@ -713,7 +760,7 @@ section {
 }
 
 .benefits-title {
-  font-size: clamp(11px, 2.5vw, 28px);
+  font-size: clamp(31px, 2.5vw, 48px);
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
   color: #000000;
@@ -1015,7 +1062,7 @@ section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 60px;
+  padding: 0px 60px;
   /* Matching reference design padding */
 }
 
@@ -1046,13 +1093,13 @@ section {
 }
 
 .mechanism-left-column {
-  padding-right: clamp(20px, 3vw, 40px);
-  padding-left: 20px;
+  padding-right: clamp(0px, 3vw, 0px);
+  /* padding-left: 20px; */
   /* Added left padding as requested */
 }
 
 .mechanism-intro {
-  font-size: clamp(18px, 3vw, 28px);
+  font-size: clamp(28px, 3vw, 58px);
   font-weight: 700;
   margin-bottom: clamp(12px, 2vw, 20px);
   color: #1a1a1a;
@@ -1061,11 +1108,11 @@ section {
 .mechanism-bullet-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 clamp(20px, 3vw, 30px) 0;
+  margin: 0 0 clamp(0px, 3vw, 30px) 0;
 }
 
 .mechanism-bullet-list li {
-  font-size: clamp(18px, 2.8vw, 24px);
+  font-size: clamp(18px, 2.8vw, 34px);
   line-height: 2;
   color: #333;
   padding-left: clamp(20px, 2.5vw, 30px);
@@ -1135,7 +1182,7 @@ section {
 
 .mechanism-instructor-image {
   width: 100%;
-  max-width: 350px;
+  /* max-width: 450px; */
   /* Reduced from 500px as requested */
   height: auto;
   object-fit: contain;
@@ -1233,6 +1280,7 @@ h3 {
   font-weight: 700;
   line-height: 1.4;
   color: #000;
+  padding-top: 50px;
 }
 
 .future-title-emphasized {
@@ -1322,7 +1370,7 @@ h3 {
   position: absolute;
   left: 0;
   bottom: -4px;
-  width: 100%;
+  width: 18%;
   height: 2px;
   background-color: #b80407;
   border-radius: 2px;
@@ -2552,7 +2600,7 @@ h3 {
 /* 3. TEXT - Right next to Badge center */
 .results-text {
   position: absolute;
-  top: 48%;
+  top: 35%;
   left: 450px;
   /* Shifted left from 520px */
   transform: translateY(-40%);
