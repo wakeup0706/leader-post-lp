@@ -265,7 +265,8 @@ section {
 .cta-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 550px;
+  /* Reduced width from 800px */
   margin: 0 auto;
   padding: 0 16px;
   /* Ensure padding on mobile */
@@ -275,33 +276,44 @@ section {
 .cta-button {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 550px;
+  /* Narrower width for impact */
   margin: 0 auto;
   background-color: #ffffff;
   border: clamp(6px, 1.2vw, 12px) solid #404040;
   border-radius: clamp(10px, 1.5vw, 16px);
-  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 2.5vw, 32px);
+  padding: clamp(12px, 2vw, 18px) clamp(16px, 2.5vw, 32px);
   display: block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.02);
 }
 
 .cta-inner {
   position: relative;
-  background: linear-gradient(0deg, #f8a130 0%, #f8a934 50%, #fbbb3d 100%);
+  /* Premium Orange Gradient */
+  background: linear-gradient(135deg, #ff9d2d 0%, #ff8c00 50%, #ff6b00 100%);
   border-radius: clamp(30px, 6vw, 80px);
-  padding: clamp(8px, 1.5vw, 16px) clamp(20px, 3.5vw, 48px);
-  box-shadow: 0px 6px 6px rgba(196, 113, 15, 0.9);
+  padding: clamp(18px, 3vw, 24px) clamp(20px, 3.5vw, 48px);
+  /* Taller proportions */
+  box-shadow: 0px 8px 15px rgba(255, 107, 0, 0.4);
+  /* Glow effect */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(8px, 1.5vw, 16px);
+  gap: clamp(12px, 2vw, 20px);
 }
 
 .cta-icon {
-  width: clamp(40px, 8vw, 104px);
-  height: clamp(40px, 8vw, 104px);
+  width: clamp(50px, 10vw, 84px);
+  height: clamp(50px, 10vw, 84px);
   background-color: #ffffff;
-  border-radius: clamp(20px, 4vw, 52px);
-  box-shadow: 0px 0px 10px #f69722;
+  border-radius: 50%;
+  /* Perfect circle */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -740,36 +752,7 @@ section {
 }
 
 /* Talent Banner */
-.talent-banner {
-  background-image: url('./img_image_13.png');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  padding: 0;
-  text-align: center;
-  overflow: hidden;
-  overflow: hidden;
-  height: auto;
-  min-height: 500px;
-  /* Increased height to show more image and clear text */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: -1px;
-  width: 100%;
-  /* Full width */
-}
-
-.talent-banner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.6);
-  /* Reduced opacity white overlay */
-  /* Remove clip-path if it blocks the full image, overlay should be simple */
-  /* clip-path: ... removed unless needed for overlay shape */
-  z-index: 1;
-}
+/* Consolidated Talent Banner styles moved to bottom */
 
 /* Hide spacers/fake transitions EXCEPT talent-transition and mechanism-chevron-top */
 /* .talent-transition, */
@@ -1190,50 +1173,6 @@ h3 {
   gap: clamp(20px, 3vw, 32px);
 }
 
-@media (max-width: 768px) {
-
-  /* Maintain side-by-side but shrink */
-  .future-card,
-  .future-card:nth-child(even) {
-    flex-direction: row;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    /* Force single line */
-    gap: 8px;
-  }
-
-  .future-card:nth-child(even) {
-    flex-direction: row-reverse;
-    /* Keep reverse for even */
-  }
-
-  .future-card-image-box {
-    flex: 0 0 40%;
-    /* Fixed 40% width */
-    width: 40%;
-    margin-bottom: 0;
-  }
-
-  .future-card-content {
-    flex: 1;
-    width: auto;
-    padding: 10px;
-    /* Tight padding */
-    min-height: auto;
-  }
-
-  .future-card-label {
-    font-size: 12px;
-    margin-bottom: 4px;
-  }
-
-  .future-card-list li {
-    font-size: 9px;
-    /* Very small text to fit */
-    line-height: 1.3;
-  }
-}
-
 .future-card {
   display: flex;
   align-items: center;
@@ -1247,17 +1186,22 @@ h3 {
 
 .future-card-image-box {
   flex: 0 0 clamp(200px, 27vw, 320px);
+  aspect-ratio: 1 / 1;
+  /* Force square container */
   border-radius: clamp(12px, 1.8vw, 20px);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background-color: #f7f7f7;
 }
 
 .future-card-img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
+  /* Best for square cards to fill space */
 }
 
+/* Future Vision Base Styles */
 .future-card-content {
   flex: 1;
   padding: clamp(20px, 3vw, 30px) clamp(20px, 3.5vw, 40px);
@@ -1312,6 +1256,42 @@ h3 {
   align-items: center;
 }
 
+/* Future Vision Mobile Override (Now declared AFTER base styles) */
+@media (max-width: 768px) {
+
+  .future-card,
+  .future-card:nth-child(even) {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .future-card-image-box {
+    flex: 0 0 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 0;
+  }
+
+  .future-card-content {
+    flex: none;
+    width: 100% !important;
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .future-card-label {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .future-card-list li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+
 /* Results and Trust Section */
 .results-trust-section {
   position: relative;
@@ -1339,6 +1319,7 @@ h3 {
   background-color: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
+
 
 .results-container {
   position: relative;
@@ -1628,11 +1609,13 @@ h3 {
 
 /* Seminar Section */
 .seminar-section {
-  background: linear-gradient(0deg, #c7c8cd 0%, #b3b4b9 100%);
-  padding: 32px 0 !important;
+  /* Black to White (Grey Scale) Linear Gradient */
+  background: linear-gradient(to bottom, #999999 0%, #555555 50%, #333333 100%);
+  padding: 48px 0 !important;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  color: #ffffff;
 }
 
 .seminar-header {
@@ -2327,8 +2310,34 @@ h3 {
 }
 
 /* ===============================
-   RESULTS – PIXEL MATCH VERSION
+   RESULTS & TALENT – PIXEL MATCH
    =============================== */
+
+.talent-banner {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+.talent-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./img_image_13.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: 1;
+}
+
 
 .results-ref {
   position: relative;
@@ -2354,7 +2363,8 @@ h3 {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 100%;
+  height: 80%;
+  /* Reduced from 90% for better balance */
   width: auto;
   z-index: 2;
 }
@@ -2363,7 +2373,8 @@ h3 {
 .results-badge {
   position: absolute;
   top: 48%;
-  left: 310px;
+  left: 280px;
+  /* Shifted left from 350px */
   transform: translateY(-85%);
   width: 154px;
   height: 154px;
@@ -2385,11 +2396,13 @@ h3 {
 .results-text {
   position: absolute;
   top: 48%;
-  left: 480px;
+  left: 450px;
+  /* Shifted left from 520px */
   transform: translateY(-40%);
   text-align: left;
   color: #fff;
-  font-size: 40px;
+  font-size: 34px;
+  /* Reduced from 38px */
   font-weight: 900;
   line-height: 1.35;
   z-index: 3;
@@ -2405,29 +2418,36 @@ h3 {
 /* MOBILE OVERRIDES (Pixel Match Composition) */
 @media (max-width: 768px) {
   .results-ref {
-    height: 400px;
+    height: 350px;
+    /* Further reduced for compact stacking */
   }
 
   .results-man {
     bottom: -10px;
-    left: -30px;
-    height: 90%;
+    left: -20px;
+    height: 55%;
+    /* Reduced slightly for more room */
   }
 
   .results-badge {
-    top: 45%;
-    left: 110px;
-    transform: translateY(-75%);
-    width: 96px;
-    height: 96px;
-    font-size: 14px;
+    top: 25%;
+    /* Anchored higher for stacking */
+    left: 50%;
+    /* Center horizontally in the available space */
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    font-size: 11px;
   }
 
   .results-text {
-    top: 45%;
-    left: 215px;
-    transform: translateY(-30%);
-    font-size: 20px;
+    top: 55%;
+    /* Anchored lower below the badge */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Centered stacking */
+    font-size: 16px;
     text-shadow: 2px 4px 8px rgba(0, 0, 0, 1);
   }
 }
