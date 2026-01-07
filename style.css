@@ -60,20 +60,20 @@ h3 {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 section {
-  width: 1200px;
-  /* Reverted to 1200px for white space separation */
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 0;
 }
 
 .section {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   padding: 8px 0 !important;
   margin: 0 auto;
 }
@@ -96,7 +96,8 @@ section {
 }
 
 .container-hero {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -146,18 +147,43 @@ section {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   gap: 20px;
-  /* Reduced to 20px as requested */
   flex-wrap: nowrap;
   padding-top: 80px;
-  /* Top padding for breathing room */
   padding-bottom: 0;
-  /* Bottom 0 to let image touch edge */
   padding-left: 0;
-  /* strict 1200px alignment */
   padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    gap: 30px;
+  }
+
+  .hero-text {
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-figure {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-figure img {
+    max-width: 80%;
+    /* Adjust as needed for mobile hero image size */
+  }
 }
 
 .hero-text {
@@ -190,7 +216,8 @@ section {
 }
 
 .hero-underline {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   /* Fixed width to match '知らないだけです。' roughly */
   height: clamp(3px, 0.4vw, 4px);
   background-color: #b80407;
@@ -237,15 +264,18 @@ section {
 
 .cta-container {
   position: relative;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 16px;
+  /* Ensure padding on mobile */
   border-radius: 0;
 }
 
 .cta-button {
   position: relative;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   background-color: #ffffff;
   border: clamp(6px, 1.2vw, 12px) solid #404040;
@@ -518,7 +548,8 @@ section {
 }
 
 .solution-detailed {
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
   text-align: left;
   line-height: 1.8;
@@ -537,6 +568,23 @@ section {
   gap: 6px;
   margin-top: 16px;
   margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+  .mechanism-flex {
+    flex-direction: row;
+    /* Keep row */
+    align-items: flex-start;
+    gap: 4px;
+    /* Tight gap */
+  }
+
+  .mechanism-label,
+  .mechanism-point,
+  .mechanism-foot {
+    font-size: 10px;
+    /* Tiny text */
+  }
 }
 
 .mechanism-label {
@@ -592,7 +640,8 @@ section {
 }
 
 .benefits-card {
-  width: 720px;
+  width: 100%;
+  max-width: 720px;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 8px;
@@ -613,7 +662,8 @@ section {
 }
 
 .benefits-list-content {
-  width: 520px;
+  width: 100%;
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -669,7 +719,8 @@ section {
 }
 
 .analysis-body {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -836,7 +887,8 @@ section {
 }
 
 .exp-body {
-  width: 750px;
+  width: 100%;
+  max-width: 750px;
   margin: 0 auto;
   text-align: left;
 }
@@ -879,7 +931,8 @@ section {
   padding: 0;
   position: relative;
   overflow: visible;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: -1px auto 0 !important;
   /* Negative top margin to remove white gap */
 }
@@ -898,7 +951,8 @@ section {
 }
 
 .mechanism-container {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 60px;
   /* Matching reference design padding */
@@ -1040,24 +1094,47 @@ h3 {
 @media (max-width: 768px) {
   .mechanism-two-column {
     grid-template-columns: 1fr;
-    gap: clamp(20px, 4vw, 30px);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    /* Increased rhythm as requested */
   }
 
   .mechanism-left-column {
     padding-right: 0;
+    order: 0;
   }
 
   .mechanism-right-column {
-    order: -1;
+    order: 1;
+    /* Image last */
+    justify-content: center;
   }
 
+  /* Shrink image to fit column but grounded */
   .mechanism-instructor-image {
     max-width: 250px;
     margin: 0 auto;
+    display: block;
   }
 
   .mechanism-yellow-box {
     max-width: 100%;
+    padding: 24px;
+    /* Breathing room */
+    margin-top: 20px;
+  }
+
+  /* Reset text scaling */
+  .mechanism-intro,
+  .mechanism-conclusion {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .mechanism-bullet-list li {
+    font-size: 14px;
+    padding-left: 20px;
   }
 }
 
@@ -1068,7 +1145,8 @@ h3 {
   position: relative;
   margin-top: 0;
   z-index: 5;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1104,11 +1182,56 @@ h3 {
 }
 
 .future-cards-container {
-  width: 850px;
+  width: 100%;
+  max-width: 850px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 3vw, 32px);
+}
+
+@media (max-width: 768px) {
+
+  /* Maintain side-by-side but shrink */
+  .future-card,
+  .future-card:nth-child(even) {
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    /* Force single line */
+    gap: 8px;
+  }
+
+  .future-card:nth-child(even) {
+    flex-direction: row-reverse;
+    /* Keep reverse for even */
+  }
+
+  .future-card-image-box {
+    flex: 0 0 40%;
+    /* Fixed 40% width */
+    width: 40%;
+    margin-bottom: 0;
+  }
+
+  .future-card-content {
+    flex: 1;
+    width: auto;
+    padding: 10px;
+    /* Tight padding */
+    min-height: auto;
+  }
+
+  .future-card-label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .future-card-list li {
+    font-size: 9px;
+    /* Very small text to fit */
+    line-height: 1.3;
+  }
 }
 
 .future-card {
@@ -1192,7 +1315,8 @@ h3 {
 /* Results and Trust Section */
 .results-trust-section {
   position: relative;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   height: auto;
   min-height: auto;
@@ -1223,9 +1347,182 @@ h3 {
   align-items: center;
   justify-content: flex-start;
   height: 100%;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 16px;
+}
+
+@media (max-width: 768px) {
+
+  /* SECTION 1: Results & Trust (Compact Overlay Layout) */
+  .results-trust-section {
+    padding: 0 !important;
+    height: 450px !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .results-container {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    position: relative !important;
+  }
+
+  /* 1. Man (Left Overlay, Height Driven) */
+  .results-portrait-box {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: -20px !important;
+    width: auto !important;
+    height: 95% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    z-index: 50 !important;
+    display: flex !important;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  .results-man-img {
+    height: 100% !important;
+    width: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: bottom left !important;
+  }
+
+  /* 2. Text Content (Strict Shrink Wrap) 
+     "occupy only the space we need" */
+  .results-content-box {
+    position: absolute !important;
+    top: auto !important;
+    /* No top anchor */
+    bottom: 40px !important;
+    /* Bottom anchor */
+    right: 16px !important;
+    /* Right anchor */
+    left: auto !important;
+
+    width: fit-content !important;
+    /* CSS3 shrink wrap */
+    height: auto !important;
+    max-width: 65% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    /* No padding */
+    background: transparent !important;
+
+    display: block !important;
+    /* No flex to avoid expansion */
+    z-index: 40 !important;
+  }
+
+  /* 3. Badge (Mid-Top Right, Independent) */
+  .results-circle-label {
+    position: absolute !important;
+    top: 40px !important;
+    right: 16px !important;
+    left: auto !important;
+    transform: none !important;
+    width: 90px !important;
+    height: 90px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    z-index: 60 !important;
+  }
+
+  .results-circle-text {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+  }
+
+  /* 4. Text Styling */
+  .results-main-text {
+    margin: 0 !important;
+    display: inline-block !important;
+    /* behave like span if needed */
+    width: 100% !important;
+    text-align: right !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    line-height: 1.4 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6) !important;
+    color: #fff !important;
+  }
+
+  .text-yellow {
+    color: #ffff00 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* 4. Main Text (Right Side, Tighter) */
+  .results-main-text {
+    margin-top: 100px !important;
+    /* Clear badge */
+    margin-right: 0 !important;
+    width: 100% !important;
+    text-align: right !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    line-height: 1.35 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5) !important;
+    color: #fff !important;
+  }
+
+  .text-yellow {
+    color: #ffff00 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+
+  /* SECTION 2: Mechanism (Overhaul) */
+  .mechanism-two-column {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    gap: 40px;
+    /* Distinct blocks */
+  }
+
+  .mechanism-left-column {
+    padding-right: 0;
+    order: 0;
+    /* Text First */
+  }
+
+  .mechanism-right-column {
+    order: 1;
+    /* Image Last */
+    justify-content: center;
+  }
+
+  .mechanism-instructor-image {
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .mechanism-yellow-box {
+    max-width: 100%;
+    padding: 24px;
+    margin-top: 24px;
+    background-color: #fffacd;
+  }
+
+  .mechanism-intro,
+  .mechanism-conclusion {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .mechanism-bullet-list li {
+    font-size: 15px;
+    padding-left: 20px;
+    line-height: 1.8;
+  }
 }
 
 .results-portrait-box {
@@ -1294,7 +1591,8 @@ h3 {
   padding: 32px 0 !important;
   color: #ffffff;
   text-align: center;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1332,7 +1630,8 @@ h3 {
 .seminar-section {
   background: linear-gradient(0deg, #c7c8cd 0%, #b3b4b9 100%);
   padding: 32px 0 !important;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1388,7 +1687,8 @@ h3 {
 }
 
 .seminar-image {
-  width: 960px;
+  width: 100%;
+  max-width: 960px;
   height: auto;
   object-fit: contain;
   margin: 20px auto 0;
@@ -1396,7 +1696,8 @@ h3 {
 }
 
 .seminar-details-container {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   margin: clamp(30px, 5vw, 60px) auto 0;
   display: flex;
   flex-direction: column;
@@ -1460,7 +1761,8 @@ h3 {
   padding: 40px 0 !important;
   text-align: center;
   color: #ffffff;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1540,12 +1842,14 @@ h3 {
 .final-message-section {
   background-color: #292929;
   padding: 24px 0 !important;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .final-message-container {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px 0;
 }
@@ -1604,190 +1908,7 @@ h3 {
    Target: 1920px, 1200px, 768px, 378px
    ========================================= */
 
-/* Mobile First - 378px and below */
-@media (max-width: 378px) {
-  .problem-section {
-    padding: 40px 16px 40px;
-  }
-
-  .problem-overlay {
-    padding: 32px 16px;
-  }
-
-  .problem-title {
-    font-size: 28px;
-    line-height: 1.4;
-  }
-
-  .problem-subtitle {
-    font-size: 22px;
-    line-height: 1.6;
-  }
-
-  .problem-list-container {
-    padding: 32px 12px 48px;
-    margin-top: -24px;
-  }
-
-  .problem-card {
-    padding: 20px 12px;
-  }
-
-  .problem-line-text {
-    font-size: 16px;
-  }
-
-  /* Hero adjustments for very small screens */
-  .hero-wrapper {
-    min-height: auto;
-    height: auto;
-  }
-
-  .hero-top-band {
-    height: clamp(20px, 4vw, 30px);
-    flex: 0 0 clamp(20px, 4vw, 30px);
-  }
-
-  .hero-body {
-    padding: clamp(4px, 1vw, 8px) 0;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    gap: 12px;
-    padding-top: 0;
-  }
-
-  .hero-text {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .hero-figure {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .hero-figure img {
-    max-width: 200px;
-    max-height: 250px;
-  }
-
-  /* CTA button adjustments */
-  .cta-inner {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 16px;
-  }
-
-  .cta-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .cta-text {
-    text-align: center;
-  }
-
-  /* Mechanism section mobile fixes */
-  .mechanism-content-wrapper {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .mechanism-text-area {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .mechanism-portrait {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin: 20px auto 0;
-    text-align: center;
-  }
-
-  .mechanism-man-image {
-    width: 200px;
-    margin: 0 auto;
-  }
-
-  .mechanism-footer-area {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  /* Future cards stack on mobile */
-  .future-card {
-    flex-direction: column !important;
-  }
-
-  .future-card-image-box {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  /* Results section mobile */
-  .results-trust-section {
-    height: auto;
-    min-height: 300px;
-    flex-direction: column;
-    padding: 20px 0;
-  }
-
-  .results-container {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-  }
-
-  .results-portrait-box {
-    flex: 0 0 auto;
-    height: auto;
-    width: 100%;
-    margin-top: 0;
-    text-align: center;
-  }
-
-  .results-man-img {
-    height: auto;
-    max-height: 250px;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .results-content-box {
-    margin-left: 0;
-    margin-top: 20px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .results-main-text {
-    font-size: clamp(11px, 2.2vw, 20px);
-    margin-left: 0;
-    margin-top: 15px;
-  }
-
-  /* Achievement list mobile */
-  .achievement-list li {
-    font-size: clamp(11px, 1.9vw, 18px);
-  }
-
-  .results-circle-text {
-    font-size: clamp(9px, 1.6vw, 16px);
-  }
-
-  /* Seminar section mobile */
-  .seminar-image {
-    margin-top: 20px;
-  }
-
-  .seminar-details-container {
-    padding: 0 16px;
-  }
-}
+/* Cleaned up conflicting legacy mobile rules */
 
 /* Tablet - 768px and below */
 @media (max-width: 768px) {
@@ -2203,4 +2324,110 @@ h3 {
 
 .delay-500 {
   transition-delay: 0.5s;
+}
+
+/* ===============================
+   RESULTS – PIXEL MATCH VERSION
+   =============================== */
+
+.results-ref {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background-image: url('./img_businessteamdiscussingproject_1.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.results-ref::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 1;
+}
+
+/* 1. MAN - Large and Clipped */
+.results-man {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  z-index: 2;
+}
+
+/* 2. BADGE - Larger and Centered next to Man */
+.results-badge {
+  position: absolute;
+  top: 48%;
+  left: 310px;
+  transform: translateY(-85%);
+  width: 154px;
+  height: 154px;
+  background: #fff;
+  border-radius: 50%;
+  color: #b80407;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 3;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* 3. TEXT - Right next to Badge center */
+.results-text {
+  position: absolute;
+  top: 48%;
+  left: 480px;
+  transform: translateY(-40%);
+  text-align: left;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.35;
+  z-index: 3;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+  white-space: nowrap;
+}
+
+/* yellow emphasis */
+.results-text span {
+  color: #ffff00;
+}
+
+/* MOBILE OVERRIDES (Pixel Match Composition) */
+@media (max-width: 768px) {
+  .results-ref {
+    height: 400px;
+  }
+
+  .results-man {
+    bottom: -10px;
+    left: -30px;
+    height: 90%;
+  }
+
+  .results-badge {
+    top: 45%;
+    left: 110px;
+    transform: translateY(-75%);
+    width: 96px;
+    height: 96px;
+    font-size: 14px;
+  }
+
+  .results-text {
+    top: 45%;
+    left: 215px;
+    transform: translateY(-30%);
+    font-size: 20px;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 1);
+  }
 }
