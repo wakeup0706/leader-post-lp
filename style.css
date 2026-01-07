@@ -592,8 +592,8 @@ section {
   padding: clamp(24px, 5vw, 60px);
   /* margin: -120px auto 0; */
   /* Pull only the card up over the image */
-  max-width: 1250px;
-  width: 100%;
+  /* max-width: 1250px; */
+  /* width: 100%; */
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   text-align: left;
@@ -2537,11 +2537,11 @@ h3 {
 .talent-banner {
   position: relative;
   width: 100%;
-  min-height: 250px;
+  /* min-height: 250px; */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 60px 0px;
   overflow: hidden;
 }
 
