@@ -12,23 +12,21 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  background-color: #ffffff;
+  /* pure white background */
 }
 
 main {
   width: 100%;
-  max-width: 100%;
+  margin: 0 auto;
   overflow-x: hidden;
+  background-color: #ffffff;
 }
 
 body {
   font-family: 'Noto Sans JP', 'Mochiy Pop One', 'Song Myung', sans-serif;
   line-height: 1.6;
   color: #000000;
-  background-color: #ffffff;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
 }
 
 img {
@@ -42,29 +40,52 @@ a {
   text-decoration: none;
 }
 
+/* GLOBAL SPACING & TYPOGRAPHY COMPRESSION */
+p,
+li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 12px;
+}
+
+/* 1200px CONSTRAINT & STRICT*/
 /* Layout components */
-.container {
+.container,
+.container-hero {
+  max-width: 1200px;
   width: 100%;
-  max-width: 1204px;
   margin: 0 auto;
-  padding: 0 clamp(12px, 2vw, 32px);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+section {
+  width: 1200px;
+  /* Reverted to 1200px for white space separation */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 0;
 }
 
 .section {
-  width: 100%;
-  padding: clamp(20px, 3vw, 40px) 0;
+  width: 1200px;
+  padding: 8px 0 !important;
+  margin: 0 auto;
 }
 
 .hero-wrapper {
+  width: 100%;
   padding: 0;
-  height: 100vh;
-  /* Force full viewport height */
-  min-height: 600px;
-  /* Minimum height for smaller screens */
+  height: auto;
+  min-height: unset;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  /* Prevent scrolling within the hero itself */
+  overflow: visible;
 }
 
 @media (max-width: 768px) {
@@ -75,10 +96,9 @@ a {
 }
 
 .container-hero {
-  width: 100%;
-  max-width: 100%;
+  width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 40px);
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -108,41 +128,49 @@ a {
 .hero-top-band {
   flex: 0 0 clamp(30px, 6vw, 80px);
   height: clamp(30px, 6vw, 80px);
+  /* Keep gradient band height */
   background: linear-gradient(90deg, #2c2827 0%, #63656a 100%);
+  width: 100%;
+  /* Be strictly inside 1200px per section rule implicitly, but explicit here if needed */
 }
 
 .hero-body {
   background: linear-gradient(180deg, #f7f7f7 0%, #ededed 60%, #e6e6e6 100%);
-  padding: clamp(8px, 2vw, 20px) 0;
-  flex: 1;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .hero-content {
-  flex: 1;
-  /* Allow content to fill available space but shrink if needed */
-  min-height: 0;
-  /* Crucial for nested flex containers to shrink */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  /* Confine width on desktop to bring elements closer */
-  max-width: 1280px;
+  width: 1200px;
   margin: 0 auto;
-  gap: clamp(20px, 3vw, 40px);
-  flex-wrap: wrap;
+  gap: 20px;
+  /* Reduced to 20px as requested */
+  flex-wrap: nowrap;
+  padding-top: 80px;
+  /* Top padding for breathing room */
+  padding-bottom: 0;
+  /* Bottom 0 to let image touch edge */
+  padding-left: 0;
+  /* strict 1200px alignment */
+  padding-right: 0;
 }
 
 .hero-text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 2vw, 20px);
+  gap: clamp(12px, 1.8vw, 18px);
   color: #1f1f1f;
   justify-content: center;
-  padding-left: clamp(0, 3vw, 5%);
+  padding-left: 40px;
+  /* Slight indent from edge */
+  padding-right: 0;
+  /* Removed right padding to rely on gap */
 }
 
 .hero-lead {
@@ -156,16 +184,18 @@ a {
   font-family: 'Song Myung', 'Noto Sans JP', serif;
   font-size: clamp(13px, 3vw, 42px);
   line-height: 1.35;
-  font-weight: 300;
+  font-weight: 700;
+  /* Made bold to match image */
   margin-top: -4px;
 }
 
 .hero-underline {
-  width: clamp(140px, 18vw, 220px);
+  width: 320px;
+  /* Fixed width to match '知らないだけです。' roughly */
   height: clamp(3px, 0.4vw, 4px);
   background-color: #b80407;
   display: block;
-  margin-top: clamp(4px, 0.6vw, 6px);
+  margin-top: 6px;
 }
 
 .hero-copy {
@@ -181,65 +211,59 @@ a {
 }
 
 .hero-figure {
-  flex: 2;
-  /* Maximize space for image */
+  flex: 1;
   display: flex;
-  /* Centered image to reduce gap to text */
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
-  height: 100%;
-  /* Ensure figure takes full height */
+  /* Bottom alignment */
+  height: auto;
 }
 
 .hero-figure img {
   width: auto;
   max-width: 100%;
-  /* Aggressively increased size as requested */
-  max-height: clamp(500px, 110vh, 150vh);
-  min-height: clamp(450px, 80vh, 1000px);
-  transform: scale(1.2);
-  transform-origin: bottom center;
-  transform-origin: bottom center;
+  height: auto;
+  transform: none;
+  /* remove unnecessary scale */
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
 }
 
 /* CTA Button Styles */
-.cta-section-first {
-  padding-top: clamp(24px, 4vw, 60px) !important;
+.cta-section-first,
+.section {
+  padding: 24px 0 !important;
 }
 
 .cta-container {
   position: relative;
-  width: 100%;
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
-  padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 32px);
+  padding: 0;
   border-radius: 0;
 }
 
 .cta-button {
   position: relative;
-  width: 100%;
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
   background-color: #ffffff;
-  border: clamp(4px, 1.5vw, 16px) solid #404040;
-  border-radius: clamp(8px, 1.8vw, 18px);
-  padding: clamp(10px, 2vw, 14px) clamp(12px, 3vw, 40px);
+  border: clamp(6px, 1.2vw, 12px) solid #404040;
+  border-radius: clamp(10px, 1.5vw, 16px);
+  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 2.5vw, 32px);
   display: block;
 }
 
 .cta-inner {
   position: relative;
   background: linear-gradient(0deg, #f8a130 0%, #f8a934 50%, #fbbb3d 100%);
-  border-radius: clamp(24px, 7vw, 92px);
-  padding: clamp(6px, 1.5vw, 16px) clamp(16px, 4vw, 56px);
+  border-radius: clamp(30px, 6vw, 80px);
+  padding: clamp(8px, 1.5vw, 16px) clamp(20px, 3.5vw, 48px);
   box-shadow: 0px 6px 6px rgba(196, 113, 15, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(6px, 1.5vw, 18px);
+  gap: clamp(8px, 1.5vw, 16px);
 }
 
 .cta-icon {
@@ -281,22 +305,47 @@ a {
   font-weight: 400;
 }
 
+.cta-arrow {
+  width: 0;
+  height: 0;
+  border-left: clamp(16px, 2.5vw, 32px) solid #ffffff;
+  border-top: clamp(12px, 2vw, 24px) solid transparent;
+  border-bottom: clamp(12px, 2vw, 24px) solid transparent;
+  flex-shrink: 0;
+  margin-left: clamp(8px, 1.5vw, 16px);
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+}
+
 
 /* Problem Section */
 .problem-section {
   background-image: url('./image2.png');
   background-size: cover;
   background-position: center;
-  padding: clamp(8px, 1vw, 10px) 0 clamp(80px, 12vw, 150px);
+  padding: 8px 0 28px 0;
+  /* Added 20px to bottom for vertical image height */
+  /* Strict spacing override */
   position: relative;
+  width: 100%;
+  /* Full width for background */
+  max-width: 100% !important;
+  margin: 0 auto;
 }
 
 .problem-overlay {
   background-color: rgba(0, 0, 0, 0.55);
-  padding: clamp(24px, 3vw, 40px) clamp(20px, 5vw, 80px);
-  border-radius: clamp(8px, 1vw, 10px);
-  max-width: 1120px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  width: 100%;
+  /* Fill the 1200px container */
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+/* Fix for container inside overlay */
+.problem-overlay .container {
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
 .problem-title {
@@ -340,20 +389,28 @@ a {
 /* Problem List */
 .problem-list-container {
   background-color: #ffffff;
-  padding: clamp(30px, 5vw, 60px) clamp(16px, 2.5vw, 32px) clamp(40px, 6vw, 80px);
-  margin-top: clamp(-24px, -4vw, -48px);
+  padding: clamp(24px, 4vw, 48px) clamp(16px, 2vw, 24px) clamp(32px, 5vw, 64px);
+  margin-top: clamp(-20px, -3.5vw, -40px);
   position: relative;
 }
 
 .problem-card {
   background-color: #ffffff;
-  padding: clamp(24px, 3.5vw, 40px) clamp(20px, 4vw, 50px);
+  padding: clamp(20px, 3vw, 32px) clamp(16px, 3vw, 40px);
   margin: 0 auto;
   border-radius: clamp(6px, 0.8vw, 8px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+}
+
+/* Box Alignment Rules */
+.problem-card,
+.solution-card,
+.benefits-card {
+  margin: 0 auto;
   width: 100%;
-  position: relative;
+  max-width: 750px;
+  padding: 8px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .problem-highlight {
@@ -403,20 +460,17 @@ a {
 }
 
 /* Solution Section */
-.solution-section {
+.solution-section,
+.analysis-section {
   background-color: #ffffff;
-  padding: clamp(16px, 2vw, 20px) 0 clamp(50px, 8vw, 100px);
+  padding: 8px 0 !important;
+  /* Strict padding */
   text-align: center;
 }
 
 .solution-card {
   background-color: #dddada;
-  padding: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 50px);
-  margin: 0 auto;
-  border-radius: clamp(6px, 0.8vw, 8px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  width: 100%;
+  /* padding handled by new box rule above */
 }
 
 .solution-header {
@@ -464,7 +518,7 @@ a {
 }
 
 .solution-detailed {
-  max-width: 900px;
+  width: 900px;
   margin: 0 auto;
   text-align: left;
   line-height: 1.8;
@@ -514,12 +568,12 @@ a {
 /* Benefits Section */
 .benefits-section {
   background-color: #ffffff;
-  padding: clamp(40px, 6vw, 80px) 0;
+  padding: clamp(12px, 2vw, 24px) 0 clamp(32px, 5vw, 64px);
   text-align: center;
 }
 
 .benefits-header {
-  margin-bottom: clamp(30px, 4vw, 50px);
+  margin-bottom: clamp(24px, 3.5vw, 40px);
 }
 
 .benefits-title {
@@ -538,9 +592,7 @@ a {
 }
 
 .benefits-card {
-  max-width: 720px;
-  /* Reduced from 800px */
-  width: 100%;
+  width: 720px;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 8px;
@@ -556,12 +608,12 @@ a {
 
 .benefits-list-box {
   background-color: #fce7ba;
-  padding: clamp(20px, 3vw, 30px) clamp(20px, 3.5vw, 40px);
+  padding: clamp(16px, 2.5vw, 24px) clamp(16px, 3vw, 32px);
   text-align: left;
 }
 
 .benefits-list-content {
-  max-width: 520px;
+  width: 520px;
   margin: 0 auto;
 }
 
@@ -597,12 +649,12 @@ a {
 /* Analysis Section */
 .analysis-section {
   background-color: #f0f2f5;
-  padding: clamp(40px, 6vw, 80px) 0;
+  padding: 32px 0 !important;
   text-align: center;
 }
 
 .analysis-header {
-  margin-bottom: clamp(24px, 3.5vw, 40px);
+  margin-bottom: clamp(20px, 3vw, 32px);
 }
 
 .analysis-title-box {
@@ -617,7 +669,7 @@ a {
 }
 
 .analysis-body {
-  max-width: 600px;
+  width: 600px;
   margin: 0 auto;
 }
 
@@ -638,44 +690,137 @@ a {
 
 /* Talent Banner */
 .talent-banner {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('./img_image_13.png');
+  background-image: url('./img_image_13.png');
   background-size: cover;
   background-position: center;
-  padding: clamp(70px, 11vw, 140px) 0 clamp(110px, 17vw, 220px);
-  text-align: center;
   position: relative;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  overflow: hidden;
+  height: auto;
+  min-height: 500px;
+  /* Increased height to show more image and clear text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -1px;
+  width: 100%;
+  /* Full width */
 }
+
+.talent-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  /* Reduced opacity white overlay */
+  /* Remove clip-path if it blocks the full image, overlay should be simple */
+  /* clip-path: ... removed unless needed for overlay shape */
+  z-index: 1;
+}
+
+/* Hide spacers/fake transitions EXCEPT talent-transition and mechanism-chevron-top */
+/* .talent-transition, */
+/* RE-ENABLED */
+/* .mechanism-chevron-top, */
+/* RE-ENABLED for triangle design */
+.experience-v-transition,
+.experience-v-footer,
+.future-v-transition {
+  display: none !important;
+}
+
+/* Removing old ::before clip path to ensure full visibility */
 
 .talent-content {
   position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 40px 0;
+}
+
+/* Bottom diagonal that visually continues into the black section */
+/* Bottom diagonal: Dark grey area rising from left to right */
+.talent-transition {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 120px;
+  /* Adjust height for the angle */
+  background-color: #1a1a1a;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+  /* Triangle in bottom right? No, let's try a full block with angled top */
+  /* Actually, if it's the next section background, it should be top of next section or bottom of this. 
+     Target image: Diagonal line separates image (top) and dark (bottom). 
+     Let's try: A block at the bottom of talent-banner that is dark color, clipped to have a diagonal top.
+     Polygon: Top-right (x:100, y:0) to Top-left (x:0, y:something) ? 
+     Let's assume the line creates a wedge. 
+     Let's try: 0% 100% (bottom left), 100% 20% (high on right), 100% 100% (bottom right).
+     Wait, if I want the dark area to be at the bottom...
+     Top-left of *dark shape*: 0% 100% (at bottom). Top-right of *dark shape*: 100% 0% (at top of div). Bottom-right: 100% 100%. Bottom-left: 0% 100%. 
+     This creates a triangle growing to the right.
+     Let's assume the cut is simply a diagonal line.
+  */
+  clip-path: polygon(0 80%, 100% 0, 100% 100%, 0 100%);
   z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
+  display: block !important;
+  /* Force show */
 }
 
 .talent-text-top {
-  font-size: clamp(13px, 2.2vw, 22px);
-  font-weight: 500;
-  margin-bottom: clamp(6px, 0.8vw, 8px);
-  color: #333;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  /* Regular */
+  margin-bottom: 12px;
+  color: #000000;
+  background-color: transparent !important;
+  /* Ensure no blue */
+  display: block;
 }
 
 .talent-text-bottom {
-  font-size: clamp(14px, 2.8vw, 28px);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #000000;
+  background-color: transparent !important;
+  display: block;
+}
+
+/* "やり方" styling - will need a span in HTML or target specifically if possible. 
+   Assuming HTML has specific markup or I need to add it. 
+   Looking at file view earlier: <p class="talent-text-bottom"><span class="text-red bold">“やり方”</span>を知らないだけです。</p>
+   So I need to style .text-red.bold inside talent-text-bottom.
+*/
+
+.talent-text-bottom .text-red {
+  color: #b80407;
   font-weight: 700;
-  color: #000;
+  font-size: 40px;
+  /* Larger emphasis */
 }
 
 /* Experience Section */
 .experience-section {
   background-color: #1a1a1a;
   color: #f0f2f5;
-  padding: clamp(60px, 10vw, 120px) 0 clamp(80px, 13vw, 160px);
+  padding: 32px 0 128px !important;
+  /* Keep bottom padding for spacing */
   position: relative;
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - clamp(40px, 6vw, 80px)), 50% 100%, 0 calc(100% - clamp(40px, 6vw, 80px)));
   margin-top: 0;
+  /* Diagonal touch rule */
   z-index: 10;
+  width: 100%;
+  /* Use clip-path on the section itself to create the diagonal top if needed, 
+     but prompt said "Diagonals touch... NO visible white gaps... Remove fake vertical spacers"
+     If the previous design used spacers for diagonals, we might need to apply clip-path to the container
+     OR verify if the image background + CSS makes it look connected.
+     For now, we strictly follow the margin-bottom: -1px and margin-top: 0 rule.
+  */
 }
 
 .exp-title-main {
@@ -687,11 +832,11 @@ a {
 
 .exp-subtitle {
   font-size: clamp(11px, 1.8vw, 18px);
-  margin-bottom: clamp(30px, 5vw, 60px);
+  margin-bottom: clamp(24px, 4vw, 48px);
 }
 
 .exp-body {
-  max-width: 750px;
+  width: 750px;
   margin: 0 auto;
   text-align: left;
 }
@@ -730,132 +875,201 @@ a {
 
 /* Team Mechanism Section */
 .team-mechanism-section {
-  background-color: #f0f2f5;
-  padding: clamp(40px, 6vw, 80px) 0 clamp(60px, 10vw, 120px);
+  background-color: #f5f5f5;
+  padding: 0;
   position: relative;
-  overflow: hidden;
-  margin-top: clamp(-40px, -6vw, -80px);
+  overflow: visible;
+  width: 1200px;
+  margin: -1px auto 0 !important;
+  /* Negative top margin to remove white gap */
+}
+
+.mechanism-chevron-top {
+  width: 100%;
+  height: 100px;
+  /* Increased from 60px to make triangle longer */
+  background-color: #1a1a1a;
+  /* Matched to Experience section color */
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  margin-bottom: 0;
+  /* No margin, padding handled by container */
+  display: block !important;
+  /* Force display */
 }
 
 .mechanism-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1000px;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 40px 60px;
+  /* Matching reference design padding */
 }
 
-.mechanism-header-wrapper {
-  width: 100%;
-  margin-bottom: clamp(30px, 5vw, 60px);
-  text-align: left;
-}
-
-.mechanism-header-box {
+.mechanism-banner {
   background-color: #ffffff;
-  padding: clamp(10px, 1.5vw, 15px) clamp(30px, 5vw, 60px) clamp(10px, 1.5vw, 15px) clamp(20px, 3.5vw, 40px);
+  padding: clamp(12px, 2vw, 20px) clamp(20px, 3vw, 40px);
+  /* Reduced gap above text */
+  margin-bottom: clamp(15px, 2vw, 25px);
+  transform: skewX(-2deg);
   display: inline-block;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  clip-path: polygon(0 0, 95% 0, 100% 100%, 0 100%);
 }
 
-.mechanism-red-title {
+.mechanism-banner-title {
   color: #b80407;
-  font-size: clamp(13px, 2.2vw, 22px);
+  font-size: clamp(14px, 2vw, 20px);
   font-weight: 700;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.mechanism-content-wrapper {
-  display: flex;
-  width: 100%;
-  position: relative;
-  min-height: clamp(200px, 32vw, 380px);
-}
-
-.mechanism-text-area {
-  flex: 1;
-  max-width: 650px;
-  padding-left: clamp(20px, 6.5vw, 80px);
-  z-index: 2;
-}
-
-.mechanism-intro-text {
-  font-size: clamp(12px, 2.2vw, 22px);
-  font-weight: 700;
-  margin-bottom: clamp(10px, 1.5vw, 15px);
-}
-
-.mechanism-list {
-  list-style: none;
-  margin-bottom: 20px;
-  padding: 0;
-}
-
-.mechanism-list li {
-  font-size: clamp(10px, 1.8vw, 18px);
-  line-height: 2.2;
-  color: #333;
-}
-
-.mechanism-outro-text {
-  font-size: clamp(12px, 2vw, 20px);
-  font-weight: 700;
-  margin: 0;
-  color: #000;
-}
-
-.mechanism-portrait {
-  position: absolute;
-  right: clamp(-40px, -6.5vw, -80px);
-  bottom: clamp(-75px, -12vw, -150px);
-  z-index: 1;
-}
-
-.mechanism-man-image {
-  width: clamp(250px, 50vw, 650px);
-  /* Increased desktop size */
-  height: auto;
-}
-
-.mechanism-footer-area {
-  width: 100%;
-  padding-left: clamp(20px, 11.5vw, 140px);
-  margin-top: clamp(12px, 1.8vw, 20px);
-  z-index: 3;
-}
-
-.mechanism-yellow-bubble {
-  background-color: #ffff7c;
-  padding: clamp(10px, 1.8vw, 20px) clamp(14px, 3vw, 35px);
-  border-radius: clamp(8px, 1.2vw, 12px);
-  font-size: clamp(11px, 1.8vw, 18px);
-  font-weight: 600;
   line-height: 1.6;
-  display: inline-block;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 0;
+  transform: skewX(2deg);
+  text-align: center;
 }
 
-.mechanism-yellow-bubble .bubble-tail {
+.mechanism-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 60px);
+  align-items: start;
+}
+
+.mechanism-left-column {
+  padding-right: clamp(20px, 3vw, 40px);
+  padding-left: 20px;
+  /* Added left padding as requested */
+}
+
+.mechanism-intro {
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  margin-bottom: clamp(12px, 2vw, 20px);
+  color: #1a1a1a;
+}
+
+.mechanism-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(20px, 3vw, 30px) 0;
+}
+
+.mechanism-bullet-list li {
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 2;
+  color: #333;
+  padding-left: clamp(20px, 2.5vw, 30px);
+  position: relative;
+}
+
+.mechanism-bullet-list li::before {
+  content: '•';
   position: absolute;
-  right: clamp(-9px, -1.5vw, -18px);
-  top: clamp(15px, 2.2vw, 25px);
+  left: clamp(5px, 1vw, 10px);
+  color: #333;
+  font-size: clamp(14px, 1.8vw, 18px);
+}
+
+.mechanism-conclusion {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+  margin-bottom: clamp(30px, 5vw, 50px);
+  color: #1a1a1a;
+}
+
+.mechanism-yellow-box {
+  background-color: #fffacd;
+  padding: clamp(16px, 2.5vw, 24px) clamp(20px, 3vw, 32px);
+  border-radius: clamp(8px, 1.2vw, 12px);
+  position: relative;
+}
+
+.mechanism-yellow-box::before {
+  content: '';
+  position: absolute;
+  left: clamp(-8px, -1vw, -12px);
+  top: clamp(20px, 3vw, 30px);
   width: 0;
   height: 0;
-  border-left: clamp(10px, 1.7vw, 20px) solid #ffff7c;
-  border-top: clamp(6px, 1vw, 12px) solid transparent;
-  border-bottom: clamp(6px, 1vw, 12px) solid transparent;
-  transform: rotate(-10deg);
+  border-top: clamp(8px, 1vw, 12px) solid transparent;
+  border-bottom: clamp(8px, 1vw, 12px) solid transparent;
+  border-right: clamp(10px, 1.2vw, 14px) solid #fffacd;
+}
+
+.mechanism-yellow-box p {
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.7;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+/* Team Mechanism - Strict 2 Column */
+.mechanism-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+  /* Align items to bottom globally */
+}
+
+.mechanism-right-column {
+  display: flex;
+  align-items: flex-end;
+  /* Bottom alignment as per rules */
+  justify-content: center;
+  /* Center image in its column */
+  position: relative;
+  height: 100%;
+  /* Fill height to align with text */
+}
+
+.mechanism-instructor-image {
+  width: 100%;
+  max-width: 350px;
+  /* Reduced from 500px as requested */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Left Content Padding Rule */
+p,
+ul,
+li,
+h1,
+h2,
+h3 {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .mechanism-two-column {
+    grid-template-columns: 1fr;
+    gap: clamp(20px, 4vw, 30px);
+  }
+
+  .mechanism-left-column {
+    padding-right: 0;
+  }
+
+  .mechanism-right-column {
+    order: -1;
+  }
+
+  .mechanism-instructor-image {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .mechanism-yellow-box {
+    max-width: 100%;
+  }
 }
 
 /* Future Vision Section */
 .future-vision-section {
   background: linear-gradient(180deg, #9b9b9b 0%, #7a7a7a 100%);
-  padding: 0 0 clamp(50px, 8vw, 100px);
+  padding: 0 0 40px;
   position: relative;
   margin-top: 0;
   z-index: 5;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .future-v-transition {
@@ -871,7 +1085,7 @@ a {
 
 .future-title-area {
   text-align: center;
-  margin-bottom: clamp(30px, 5vw, 60px);
+  margin-bottom: clamp(24px, 4vw, 48px);
 }
 
 .future-main-title {
@@ -890,11 +1104,11 @@ a {
 }
 
 .future-cards-container {
-  max-width: 900px;
+  width: 850px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(24px, 3.5vw, 40px);
+  gap: clamp(20px, 3vw, 32px);
 }
 
 .future-card {
@@ -978,8 +1192,11 @@ a {
 /* Results and Trust Section */
 .results-trust-section {
   position: relative;
-  width: 100%;
-  height: clamp(300px, 40vw, 480px);
+  width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  min-height: auto;
+  /* Content driven */
   background-image: url('./img_businessteamdiscussingproject_1.png');
   background-size: cover;
   background-position: center;
@@ -1006,23 +1223,28 @@ a {
   align-items: center;
   justify-content: flex-start;
   height: 100%;
-  max-width: 1200px;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .results-portrait-box {
-  flex: 0 0 clamp(250px, 40vw, 550px);
-  /* Increased desktop size */
-  height: 115%;
+  flex: 0 0 450px;
+  height: 100%;
   display: flex;
   align-items: flex-end;
-  margin-top: clamp(-20px, -3.3vw, -40px);
+  /* Bottom alignment */
+  margin-top: 0;
   position: relative;
+  overflow: hidden;
 }
 
 .results-man-img {
-  height: 110%;
+  height: 100%;
+  max-height: 100%;
   width: auto;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
 .results-content-box {
@@ -1069,15 +1291,17 @@ a {
 /* Achievement Details Section */
 .achievement-details-section {
   background-color: #212121;
-  padding: clamp(40px, 6vw, 80px) 0;
+  padding: 32px 0 !important;
   color: #ffffff;
   text-align: center;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .achievement-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto clamp(30px, 5vw, 60px);
+  margin: 0 auto clamp(24px, 4vw, 48px);
   display: inline-block;
   text-align: left;
 }
@@ -1107,7 +1331,9 @@ a {
 /* Seminar Section */
 .seminar-section {
   background: linear-gradient(0deg, #c7c8cd 0%, #b3b4b9 100%);
-  padding: clamp(30px, 4.5vw, 54px) 0;
+  padding: 32px 0 !important;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .seminar-header {
@@ -1162,20 +1388,20 @@ a {
 }
 
 .seminar-image {
-  width: 100%;
-  max-width: 960px;
+  width: 960px;
   height: auto;
   object-fit: contain;
-  margin-top: 20px;
+  margin: 20px auto 0;
+  display: block;
 }
 
 .seminar-details-container {
-  width: 100%;
-  max-width: 800px;
+  width: 800px;
   margin: clamp(30px, 5vw, 60px) auto 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(30px, 5vw, 60px);
+  gap: clamp(15px, 2.5vw, 30px);
+  /* Reduced from 30-60px */
   text-align: left;
 }
 
@@ -1197,8 +1423,10 @@ a {
   color: #ffffff;
   font-size: clamp(13px, 2.2vw, 22px);
   font-weight: 700;
-  line-height: 1.8;
-  margin-bottom: clamp(12px, 1.5vw, 16px);
+  line-height: 1.4;
+  /* Reduced from 1.8 to tighten vertical spacing */
+  margin-bottom: clamp(6px, 0.8vw, 8px);
+  /* Reduced from 12-16px */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -1229,13 +1457,15 @@ a {
 /* Message to President Section */
 .message-president-section {
   background-color: #212121;
-  padding: clamp(50px, 8vw, 100px) 0;
+  padding: 40px 0 !important;
   text-align: center;
   color: #ffffff;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .message-headline-group {
-  margin-bottom: clamp(40px, 6.5vw, 80px);
+  margin-bottom: clamp(32px, 5vw, 64px);
 }
 
 .message-headline-line-1 {
@@ -1309,13 +1539,15 @@ a {
 /* Final CTA Section */
 .final-message-section {
   background-color: #292929;
-  padding: 20px;
+  padding: 24px 0 !important;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .final-message-container {
-  max-width: 1204px;
+  width: 1200px;
   margin: 0 auto;
-  padding: 20px 16px;
+  padding: 20px 0;
 }
 
 .final-message-content {
@@ -1717,11 +1949,28 @@ a {
 /* Large Desktop - 1920px and above */
 @media (min-width: 1920px) {
   .container {
-    max-width: 1400px;
+    max-width: 1200px;
+  }
+
+  .container-hero {
+    max-width: 1200px;
   }
 
   .hero-content {
+    max-width: 1200px;
     gap: 60px;
+  }
+
+  .mechanism-container {
+    max-width: 1200px;
+  }
+
+  .results-container {
+    max-width: 1200px;
+  }
+
+  .final-message-container {
+    max-width: 1200px;
   }
 }
 
@@ -1856,12 +2105,7 @@ a {
 }
 
 /* Transition Elements */
-.talent-transition {
-  width: 100%;
-  height: clamp(40px, 6vw, 80px);
-  background: transparent;
-  margin-top: clamp(-40px, -6vw, -80px);
-}
+/* (intentionally left blank; .talent-transition is defined above) */
 
 .experience-v-transition {
   display: none;
