@@ -60,15 +60,15 @@ h3 {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  /* padding-left: 16px; */
+  /* padding-right: 16px; */
 }
 
 section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 8px 0;
+  /* padding: 8px 0; */
 }
 
 .section {
@@ -146,11 +146,13 @@ section {
 .hero-content {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
+  /* Changed from space-between */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 20px;
+  gap: 0;
+  /* Removed gap to eliminate any space */
   flex-wrap: nowrap;
   padding-top: 80px;
   padding-bottom: 0;
@@ -160,59 +162,103 @@ section {
 
 @media (max-width: 768px) {
   .hero-content {
+    position: relative;
+    padding: 24px 16px 0 16px;
+    height: 560px;
+    /* Stable height for poster composition */
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 16px;
-    gap: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
   }
 
   .hero-text {
+    position: relative;
+    z-index: 2;
     padding: 0;
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
     width: 100%;
+  }
+
+  .hero-lead {
+    font-size: 26px !important;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 30px !important;
+    margin-top: 4px;
+    text-align: left;
+  }
+
+  .hero-underline {
+    max-width: 280px;
+    margin: 8px 0;
+  }
+
+  .hero-copy {
+    font-size: 14px !important;
+    max-width: 75%;
+    line-height: 1.5;
+    text-align: left;
   }
 
   .hero-figure {
-    order: -1;
-    width: 100%;
-    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    width: 70%;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   .hero-figure img {
-    max-width: 80%;
-    /* Adjust as needed for mobile hero image size */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(-5px 0 15px rgba(0, 0, 0, 0.1));
   }
 }
 
 .hero-text {
-  flex: 1;
+  flex: 0 1 auto;
+  /* Take only what is needed */
+  width: fit-content;
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.8vw, 18px);
+  align-items: flex-start;
+  /* Hug the left side */
+  gap: clamp(8px, 1.2vw, 15px);
   color: #1f1f1f;
   justify-content: center;
-  padding-left: 40px;
-  /* Slight indent from edge */
+  padding-left: 20px;
+  /* Reduced from 40px to bring text closer to edge/image */
   padding-right: 0;
-  /* Removed right padding to rely on gap */
 }
 
 .hero-lead {
+  display: block;
+  margin: 0;
   font-family: 'Song Myung', 'Noto Sans JP', serif;
-  font-size: clamp(10px, 2.5vw, 34px);
-  line-height: 1.3;
+  font-size: clamp(24px, 4vw, 42px);
+  /* Increased significantly */
+  line-height: 1.2;
   font-weight: 700;
 }
 
 .hero-title {
+  display: block;
+  margin: 0;
   font-family: 'Song Myung', 'Noto Sans JP', serif;
-  font-size: clamp(13px, 3vw, 42px);
-  line-height: 1.35;
+  font-size: clamp(32px, 5.5vw, 68px);
+  /* Increased significantly for impact */
+  line-height: 1.2;
   font-weight: 700;
-  /* Made bold to match image */
-  margin-top: -4px;
+  margin-top: clamp(10px, 1.5vw, 20px);
 }
 
 .hero-underline {
@@ -226,11 +272,14 @@ section {
 }
 
 .hero-copy {
+  display: block;
+  margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(10px, 1.2vw, 16px);
+  font-size: clamp(16px, 1.8vw, 24px);
+  /* Increased for readability */
   line-height: 1.7;
   color: #333333;
-  margin-top: clamp(10px, 1.5vw, 16px);
+  margin-top: clamp(20px, 3vw, 40px);
 }
 
 .hero-copy-bottom {
@@ -238,20 +287,18 @@ section {
 }
 
 .hero-figure {
-  flex: 1;
+  flex: 0 0 auto;
+  /* Only take needed space for the image */
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
-  /* Bottom alignment */
   height: auto;
 }
 
 .hero-figure img {
   width: auto;
   max-width: 100%;
-  height: auto;
-  transform: none;
-  /* remove unnecessary scale */
+  height: clamp(380px, 60vw, 850px);
+  /* Increased size for more impact */
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
 }
@@ -271,6 +318,12 @@ section {
   padding: 0 16px;
   /* Ensure padding on mobile */
   border-radius: 0;
+}
+
+.cta-white-wrapper {
+  background-color: #ffffff;
+  padding: 40px 0;
+  width: 100%;
 }
 
 .cta-button {
@@ -294,13 +347,12 @@ section {
 
 .cta-inner {
   position: relative;
-  /* Premium Orange Gradient */
-  background: linear-gradient(135deg, #ff9d2d 0%, #ff8c00 50%, #ff6b00 100%);
+  /* Pixel-Match Orange Gradient */
+  background: linear-gradient(to bottom, #ffb344 0%, #ff9e00 100%);
   border-radius: clamp(30px, 6vw, 80px);
   padding: clamp(18px, 3vw, 24px) clamp(20px, 3.5vw, 48px);
-  /* Taller proportions */
-  box-shadow: 0px 8px 15px rgba(255, 107, 0, 0.4);
-  /* Glow effect */
+  /* 3D Pressed Look instead of glow */
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -322,9 +374,10 @@ section {
 
 .cta-icon-text {
   font-size: clamp(8px, 1.5vw, 18px);
-  font-family: 'Mochiy Pop One';
-  font-weight: 400;
-  color: #f49c32;
+  font-weight: 700;
+  color: #ff9e00;
+  /* Match orange */
+  line-height: 1;
 }
 
 .cta-text {
@@ -333,18 +386,19 @@ section {
 }
 
 .cta-main-text {
-  font-size: clamp(10px, 2vw, 22px);
-  font-family: 'Noto Sans JP';
-  font-weight: 400;
-  line-height: 1.6;
+  font-size: clamp(12px, 2.5vw, 32px);
+  font-weight: 700;
   color: #ffffff;
-  text-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+  line-height: 1.35;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cta-highlight {
-  color: #ffe45a;
-  font-size: clamp(11px, 2.2vw, 24px);
-  font-weight: 400;
+  color: #f7ff00;
+  /* Bright yellow from reference */
+  font-size: inherit;
+  font-weight: 700;
 }
 
 .cta-arrow {
@@ -359,29 +413,33 @@ section {
 }
 
 
-/* Problem Section */
 .problem-section {
-  background-image: url('./image2.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./image2.png');
   background-size: cover;
   background-position: center;
-  padding: 8px 0 28px 0;
-  /* Added 20px to bottom for vertical image height */
-  /* Strict spacing override */
+  padding: 140px 0 100px;
+  /* Increased top padding for head room */
   position: relative;
-  width: 100%;
-  /* Full width for background */
+  width: 100% !important;
   max-width: 100% !important;
+  /* Force full-bleed background */
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 380px;
 }
 
 .problem-overlay {
-  background-color: rgba(0, 0, 0, 0.55);
-  padding: 8px 10px;
-  border-radius: 8px;
   width: 100%;
-  /* Fill the 1200px container */
-  max-width: 1000px;
+  max-width: 1200px;
+  /* Text stays within normal content width */
   margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  padding: 0 20px;
 }
 
 /* Fix for container inside overlay */
@@ -391,22 +449,26 @@ section {
 }
 
 .problem-title {
-  font-size: clamp(12px, 2.5vw, 32px);
-  font-family: 'Mochiy Pop One';
-  font-weight: 400;
-  line-height: 1.4;
+  font-size: clamp(24px, 4.5vw, 48px);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 900;
+  line-height: 1.2;
   text-align: center;
   color: #ffffff;
   margin-bottom: clamp(12px, 1.8vw, 20px);
+  position: relative;
+  z-index: 3;
 }
 
 .problem-subtitle {
-  font-size: clamp(11px, 2.2vw, 28px);
-  font-family: 'Song Myung';
-  font-weight: 400;
+  font-size: clamp(18px, 3.5vw, 36px);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
   line-height: 1.4;
   text-align: center;
   color: #ffffff;
+  position: relative;
+  z-index: 3;
 }
 
 .problem-arrow-wrapper {
@@ -428,200 +490,214 @@ section {
   z-index: 10;
 }
 
-/* Problem List */
-.problem-list-container {
-  background-color: #ffffff;
-  padding: clamp(24px, 4vw, 48px) clamp(16px, 2vw, 24px) clamp(32px, 5vw, 64px);
-  margin-top: clamp(-20px, -3.5vw, -40px);
+/* Unified Problem-Solution Cohesive Merge */
+.problem-solution-wrapper {
+  background: transparent;
   position: relative;
+  padding-bottom: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto;
+  /* Sequential: starts after the image ends */
+  z-index: 10;
+}
+
+/* Problem Section Arrow - Refined to overlap */
+.problem-v-arrow {
+  position: absolute;
+  top: -5px;
+  /* Pull up to top of card */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 30px solid #ffffff;
+  z-index: 10;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+.problem-list-container {
+  padding: 60px 16px 40px 16px;
+  width: 100%;
+  background-color: #e9eaec;
 }
 
 .problem-card {
-  background-color: #ffffff;
-  padding: clamp(20px, 3vw, 32px) clamp(16px, 3vw, 40px);
-  margin: 0 auto;
-  border-radius: clamp(6px, 0.8vw, 8px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Box Alignment Rules */
-.problem-card,
-.solution-card,
-.benefits-card {
-  margin: 0 auto;
+  background: #ffffff;
+  padding: clamp(24px, 5vw, 60px);
+  /* margin: -120px auto 0; */
+  /* Pull only the card up over the image */
+  max-width: 1250px;
   width: 100%;
-  max-width: 750px;
-  padding: 8px 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-align: left;
 }
 
-.problem-highlight {
-  color: #b80407;
+.problem-items-restored {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .problem-item {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.5vw, 18px);
+  gap: 20px;
 }
 
-.problem-check {
-  width: clamp(18px, 2.2vw, 24px);
-  height: clamp(18px, 2.2vw, 24px);
+.problem-check-new {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 1px solid #d1d1d1;
+  border: 1px solid #999;
   position: relative;
   flex-shrink: 0;
-  background-color: #fff;
 }
 
-.problem-check::after {
-  content: '';
+.problem-check-new::after {
+  content: '✓';
   position: absolute;
-  left: 6px;
-  top: 5px;
-  width: 10px;
-  height: 5px;
-  border-left: 2px solid #555;
-  border-bottom: 2px solid #555;
-  transform: rotate(-45deg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #333;
 }
 
 .problem-line-text {
-  font-size: clamp(10px, 1.8vw, 20px);
-  font-family: 'Noto Sans JP';
+  font-size: clamp(16px, 2.5vw, 24px);
+  line-height: 1.5;
+  color: #333;
+  font-weight: 500;
+}
+
+.problem-text-red-bold {
+  color: #b80407;
+  font-weight: 900;
+}
+
+.problem-separator-new {
+  height: 1px;
+  background-color: #ddd;
+  margin: 6px 0;
+}
+
+/* Solution Content Restored */
+.section-solution-restored {
+  padding: 60px 16px;
+  text-align: center;
+  background-color: #e9eaec;
+}
+
+.solution-content-restored {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.solution-main-heading {
+  font-size: clamp(28px, 6vw, 64px);
+  /* Larger as per screenshot */
   font-weight: 700;
-  line-height: 1.6;
-  color: #000000;
+  margin-bottom: 50px;
+  color: #000;
+  letter-spacing: -0.02em;
 }
 
-.problem-separator {
-  height: 2px;
-  background-color: #e5e5e5;
-  margin: clamp(8px, 1.2vw, 14px) 0;
+.solution-sub-message {
+  font-size: clamp(20px, 4vw, 40px);
+  line-height: 1.5;
+  margin-bottom: 50px;
+  font-weight: 700;
 }
 
-/* Solution Section */
-.solution-section,
+.solution-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.solution-detail-text {
+  font-size: clamp(16px, 2.2vw, 22px);
+  line-height: 2;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+  font-weight: 500;
+  text-align: left;
+  /* Left align */
+  padding-left: 20px;
+  /* 20px padding */
+}
+
+.solution-mechanism-new {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.mechanism-item-new {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  /* space between label and bullets */
+  text-align: left;
+}
+
+.mechanism-label-new {
+  font-size: clamp(18px, 3.5vw, 36px);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.mechanism-bullets-new {
+  display: flex;
+  flex-direction: column;
+}
+
+.mechanism-bullets-new .text-red-thin {
+  font-size: clamp(18px, 3.5vw, 36px);
+  line-height: 1.5;
+}
+
+.mechanism-row {
+  font-size: clamp(18px, 3.5vw, 36px);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.indent-row {
+  padding-left: 4.8em;
+  /* Specific indentation matching screenshot */
+}
+
+.text-red {
+  color: #b80407;
+  font-weight: 900;
+}
+
+.text-red-thin {
+  color: #b80407;
+  font-weight: 500;
+}
+
+.text-red-bold {
+  color: #b80407;
+  font-weight: 950;
+}
+
+.solution-footer-text {
+  font-size: clamp(20px, 3.5vw, 32px);
+  font-weight: 700;
+  color: #000;
+}
+
+/* Analysis Section Legacy (kept for safety if used elsewhere) */
 .analysis-section {
   background-color: #ffffff;
   padding: 8px 0 !important;
-  /* Strict padding */
-  text-align: center;
-}
-
-.solution-card {
-  background-color: #dddada;
-  /* padding handled by new box rule above */
-}
-
-.solution-header {
-  margin-bottom: clamp(18px, 2.5vw, 30px);
-}
-
-.solution-title {
-  font-size: clamp(13px, 2.5vw, 28px);
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: clamp(8px, 1.2vw, 12px);
-  letter-spacing: 0.05em;
-}
-
-.solution-subtitle {
-  font-size: clamp(13px, 1.8vw, 18px);
-  font-weight: 700;
-  margin-bottom: clamp(2px, 0.4vw, 4px);
-}
-
-.solution-main-message {
-  font-size: clamp(13px, 2vw, 20px);
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.solution-highlight-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.solution-highlight-underline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0px;
-  width: 100%;
-  height: 1px;
-  background-color: #000000;
-}
-
-.solution-red {
-  color: #b80407;
-}
-
-.solution-detailed {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: left;
-  line-height: 1.8;
-}
-
-.solution-intro {
-  font-size: clamp(13px, 1.5vw, 16px);
-  margin-bottom: 2px;
-  line-height: 1.4;
-}
-
-.mechanism-flex {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 6px;
-  margin-top: 16px;
-  margin-bottom: 12px;
-}
-
-@media (max-width: 768px) {
-  .mechanism-flex {
-    flex-direction: row;
-    /* Keep row */
-    align-items: flex-start;
-    gap: 4px;
-    /* Tight gap */
-  }
-
-  .mechanism-label,
-  .mechanism-point,
-  .mechanism-foot {
-    font-size: 10px;
-    /* Tiny text */
-  }
-}
-
-.mechanism-label {
-  font-size: clamp(10px, 1.8vw, 18px);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  white-space: normal;
-}
-
-.mechanism-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.mechanism-point {
-  font-size: clamp(10px, 1.8vw, 18px);
-  font-weight: 700;
-  text-align: left;
-}
-
-.mechanism-foot {
-  font-size: clamp(10px, 1.8vw, 18px);
-  font-weight: 700;
-  margin-top: 12px;
   text-align: center;
 }
 
@@ -807,12 +883,12 @@ section {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 28px;
   font-weight: 400;
-  /* Regular */
   margin-bottom: 12px;
   color: #000000;
   background-color: transparent !important;
-  /* Ensure no blue */
   display: block;
+  text-align: center;
+  /* Center align */
 }
 
 .talent-text-bottom {
@@ -822,6 +898,8 @@ section {
   color: #000000;
   background-color: transparent !important;
   display: block;
+  text-align: center;
+  /* Center align */
 }
 
 /* "やり方" styling - will need a span in HTML or target specifically if possible. 
@@ -859,19 +937,19 @@ section {
 
 .exp-title-main {
   color: #f7e1b5;
-  font-size: clamp(14px, 2.8vw, 28px);
+  font-size: clamp(24px, 4.5vw, 42px);
   font-weight: 700;
   margin-bottom: clamp(18px, 2.5vw, 30px);
 }
 
 .exp-subtitle {
-  font-size: clamp(11px, 1.8vw, 18px);
+  font-size: clamp(18px, 2.8vw, 26px);
   margin-bottom: clamp(24px, 4vw, 48px);
 }
 
 .exp-body {
   width: 100%;
-  max-width: 750px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: left;
 }
@@ -881,7 +959,7 @@ section {
 }
 
 .exp-side-label {
-  font-size: clamp(11px, 1.8vw, 18px);
+  font-size: clamp(18px, 2.6vw, 24px);
   font-weight: 500;
   margin-bottom: clamp(10px, 1.5vw, 15px);
   line-height: 1.6;
@@ -889,7 +967,7 @@ section {
 
 .exp-list {
   list-style: none;
-  font-size: clamp(11px, 1.8vw, 18px);
+  font-size: clamp(18px, 2.4vw, 22px);
   line-height: 2;
   padding-left: clamp(20px, 8vw, 100px);
 }
@@ -952,7 +1030,7 @@ section {
 
 .mechanism-banner-title {
   color: #b80407;
-  font-size: clamp(14px, 2vw, 20px);
+  font-size: clamp(24px, 4.5vw, 42px);
   font-weight: 700;
   line-height: 1.6;
   margin: 0;
@@ -974,7 +1052,7 @@ section {
 }
 
 .mechanism-intro {
-  font-size: clamp(16px, 2.2vw, 22px);
+  font-size: clamp(18px, 3vw, 28px);
   font-weight: 700;
   margin-bottom: clamp(12px, 2vw, 20px);
   color: #1a1a1a;
@@ -987,7 +1065,7 @@ section {
 }
 
 .mechanism-bullet-list li {
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: clamp(18px, 2.8vw, 24px);
   line-height: 2;
   color: #333;
   padding-left: clamp(20px, 2.5vw, 30px);
@@ -999,11 +1077,11 @@ section {
   position: absolute;
   left: clamp(5px, 1vw, 10px);
   color: #333;
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: clamp(18px, 2.8vw, 24px);
 }
 
 .mechanism-conclusion {
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(18px, 3vw, 26px);
   font-weight: 700;
   margin-bottom: clamp(30px, 5vw, 50px);
   color: #1a1a1a;
@@ -1029,7 +1107,7 @@ section {
 }
 
 .mechanism-yellow-box p {
-  font-size: clamp(13px, 1.6vw, 16px);
+  font-size: clamp(16px, 2.2vw, 20px);
   line-height: 1.7;
   margin: 0;
   color: #1a1a1a;
@@ -1149,6 +1227,7 @@ h3 {
   margin-bottom: clamp(24px, 4vw, 48px);
 }
 
+
 .future-main-title {
   font-size: clamp(15px, 2.8vw, 40px);
   font-weight: 700;
@@ -1181,17 +1260,20 @@ h3 {
 }
 
 .future-card:nth-child(even) {
-  flex-direction: row-reverse;
+  flex-direction: row;
+  /* Unified alignment to the left */
 }
 
 .future-card-image-box {
   flex: 0 0 clamp(200px, 27vw, 320px);
   aspect-ratio: 1 / 1;
-  /* Force square container */
   border-radius: clamp(12px, 1.8vw, 20px);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   background-color: #f7f7f7;
+  position: relative;
+  z-index: 2;
+  /* Sits on top of the text content */
 }
 
 .future-card-img {
@@ -1204,17 +1286,22 @@ h3 {
 /* Future Vision Base Styles */
 .future-card-content {
   flex: 1;
-  padding: clamp(20px, 3vw, 30px) clamp(20px, 3.5vw, 40px);
+  padding: clamp(20px, 3vw, 30px) clamp(20px, 3.5vw, 60px) clamp(20px, 3vw, 30px) clamp(40px, 6vw, 80px);
   border-radius: clamp(12px, 1.8vw, 20px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   min-height: clamp(150px, 20vw, 200px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: -60px;
+  /* Pulls content under the image */
+  z-index: 1;
+  position: relative;
 }
 
 .future-card-monday {
-  background-color: #f4f6f8;
+  background-color: #f0f4f8;
+  /* Softer grey-blue */
 }
 
 .future-card-friday {
@@ -1263,7 +1350,7 @@ h3 {
   .future-card:nth-child(even) {
     flex-direction: column !important;
     align-items: center;
-    gap: 20px;
+    gap: 0;
   }
 
   .future-card-image-box {
@@ -1278,6 +1365,10 @@ h3 {
     width: 100% !important;
     padding: 24px;
     min-height: auto;
+    margin-left: 0;
+    /* Reset overlap on mobile */
+    margin-top: -20px;
+    /* Slight vertical overlap instead */
   }
 
   .future-card-label {
@@ -1568,11 +1659,19 @@ h3 {
 
 /* Achievement Details Section */
 .achievement-details-section {
-  background-color: #212121;
-  padding: 32px 0 !important;
+  background-color: #1a1a1a;
+  /* Darker, premium look */
+  padding: 60px 20px !important;
   color: #ffffff;
-  text-align: center;
   width: 100%;
+  margin: 0 auto;
+}
+
+.achievement-details-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center everything vertically */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1580,40 +1679,52 @@ h3 {
 .achievement-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto clamp(24px, 4vw, 48px);
-  display: inline-block;
-  text-align: left;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* List markers align left, but block is centered */
 }
 
 .achievement-list li {
-  font-size: clamp(10px, 1.8vw, 30px);
+  font-size: clamp(14px, 2.2vw, 24px);
   font-weight: 700;
   line-height: 2.2;
-  white-space: nowrap;
+  color: #ffffff;
 }
 
 .achievement-summary-box {
-  background-color: #8c8c8c;
-  padding: clamp(20px, 3vw, 30px) clamp(30px, 5vw, 60px);
-  border-radius: clamp(12px, 1.8vw, 20px);
-  display: inline-block;
-  margin: 0 auto;
+  background-color: #757575;
+  /* Grey summary box */
+  padding: 24px 40px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  max-width: 90%;
 }
 
 .achievement-summary-text {
-  font-size: clamp(12px, 2vw, 34px);
+  font-size: clamp(16px, 2.5vw, 28px);
   font-weight: 700;
   line-height: 1.5;
   color: #ffffff;
+  text-align: center;
+}
+
+.achievement-summary-text .text-yellow {
+  color: #ffff00 !important;
+  font-weight: 900;
 }
 
 /* Seminar Section */
 .seminar-section {
   /* Black to White (Grey Scale) Linear Gradient */
-  background: linear-gradient(to bottom, #999999 0%, #555555 50%, #333333 100%);
-  padding: 48px 0 !important;
+  background-color: rgb(240, 238, 238);
+  /* padding: 48px 0 !important; */
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   color: #ffffff;
 }
@@ -1622,8 +1733,11 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(30px, 5vw, 60px);
+  gap: clamp(30px, 5vw, 0px);
   width: 100%;
+  background: linear-gradient(180deg, #b3b4b9 0%, #9c9da1 50%, #2c2c2e 100%);
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .seminar-title-group {
@@ -1730,7 +1844,7 @@ h3 {
 }
 
 .seminar-content {
-  background: linear-gradient(180deg, #b3b4b9 0%, #9c9da1 50%, #505053 100%);
+  background: linear-gradient(180deg, #b3b4b9 0%, #9c9da1 50%, #2c2c2e 100%);
   padding: 58px 56px 58px 182px;
   gap: 60px;
   display: flex;
@@ -1740,10 +1854,12 @@ h3 {
 
 /* Message to President Section */
 .message-president-section {
-  background-color: #212121;
-  padding: 40px 0 !important;
+  background-color: #000000;
+  /* Revert to Black */
+  padding: 80px 0 !important;
   text-align: center;
   color: #ffffff;
+  /* Revert to White */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -1759,6 +1875,7 @@ h3 {
   margin-bottom: clamp(12px, 1.8vw, 20px);
   position: relative;
   display: inline-block;
+  color: #ffffff;
 }
 
 .message-sparkle-icon {
@@ -1770,18 +1887,35 @@ h3 {
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
 }
 
+.message-sparkle-icon path {
+  fill: #ffffff;
+  /* White sparkles */
+}
+
 .message-headline-line-2 {
   font-size: clamp(14px, 3.2vw, 42px);
   font-weight: 700;
+  color: #ffffff;
+}
+
+.message-headline-line-2 .text-yellow {
+  color: #ffff00 !important;
+  /* Yellow text on black */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .message-body-text {
   font-size: clamp(11px, 2vw, 22px);
   line-height: 2.2;
+  color: #ffffff;
 }
 
 .message-paragraph {
   margin-bottom: clamp(18px, 2.5vw, 30px);
+}
+
+.message-paragraph.mt-large {
+  margin-top: clamp(30px, 5vw, 60px);
 }
 
 .message-paragraph.mt-large {
@@ -2142,7 +2276,30 @@ h3 {
   }
 
   .hero-figure img {
-    max-height: clamp(150px, 25vh, 200px);
+    max-height: clamp(280px, 45vh, 380px);
+    /* Increased size significantly for impact */
+    width: auto;
+    object-position: bottom;
+  }
+
+  .hero-lead {
+    font-size: 18px !important;
+    /* Scaled down for mobile */
+    line-height: 1.2;
+  }
+
+  .hero-title {
+    font-size: 26px !important;
+    /* Scaled down for mobile impact */
+    line-height: 1.2;
+    margin-top: 8px;
+  }
+
+  .hero-copy {
+    font-size: 14px !important;
+    /* Scaled down for readability */
+    line-height: 1.6;
+    margin-top: 15px;
   }
 
   .cta-arrow {
