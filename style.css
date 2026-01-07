@@ -4,7 +4,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 html,
@@ -53,11 +53,11 @@ h3 {
   margin-bottom: 12px;
 }
 
-/* 1200px CONSTRAINT & STRICT*/
+/* 1100px CONSTRAINT & STRICT*/
 /* Layout components */
 .container,
 .container-hero {
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   /* padding-left: 16px; */
@@ -66,14 +66,14 @@ h3 {
 
 section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   /* padding: 8px 0; */
 }
 
 .section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   padding: 8px 0 !important;
   margin: 0 auto;
 }
@@ -97,7 +97,7 @@ section {
 
 .container-hero {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -132,7 +132,7 @@ section {
   /* Keep gradient band height */
   background: linear-gradient(90deg, #2c2827 0%, #63656a 100%);
   width: 100%;
-  /* Be strictly inside 1200px per section rule implicitly, but explicit here if needed */
+  /* Be strictly inside 1100px per section rule implicitly, but explicit here if needed */
 }
 
 .hero-body {
@@ -149,14 +149,14 @@ section {
   justify-content: flex-start;
   /* Changed from space-between */
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   gap: 0;
   /* Removed gap to eliminate any space */
   flex-wrap: nowrap;
   padding-top: 80px;
   padding-bottom: 0;
-  padding-left: 0;
+  padding-left: 80px;
   padding-right: 0;
 }
 
@@ -188,7 +188,7 @@ section {
   }
 
   .hero-title {
-    font-size: 30px !important;
+    font-size: 28px !important;
     margin-top: 4px;
     text-align: left;
   }
@@ -200,7 +200,7 @@ section {
 
   .hero-copy {
     font-size: 14px !important;
-    max-width: 75%;
+    max-width: 80%;
     line-height: 1.5;
     text-align: left;
   }
@@ -227,7 +227,7 @@ section {
 .hero-text {
   flex: 0 1 auto;
   /* Take only what is needed */
-  width: fit-content;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -254,32 +254,49 @@ section {
   display: block;
   margin: 0;
   font-family: 'Song Myung', 'Noto Sans JP', serif;
-  font-size: clamp(32px, 5.5vw, 68px);
+  font-size: clamp(30px, 6vw, 38px);
   /* Increased significantly for impact */
-  line-height: 1.2;
+  line-height: 1.7;
   font-weight: 700;
-  margin-top: clamp(10px, 1.5vw, 20px);
+  margin-top: clamp(20px, 1.5vw, 30px);
 }
 
 .hero-underline {
   width: 100%;
-  max-width: 220px;
+  max-width: 490px;
   /* Fixed width to match '知らないだけです。' roughly */
-  height: clamp(3px, 0.4vw, 4px);
-  background-color: #b80407;
+  height: clamp(2px, 0.4vw, 3px);
+  background: linear-gradient(90deg, #ff3300 0%, #ffa5a5 100%);
   display: block;
   margin-top: 6px;
+  border-left: 1px solid #ffcabc;
+  border-radius: 5px;
+  font-size: 3px;
+}
+
+.hero-underline-first {
+  width: 100%;
+  max-width: 490px;
+  /* Fixed width to match '知らないだけです。' roughly */
+  height: clamp(1px, 0.4vw, 2px);
+  background: linear-gradient(90deg, #939190 0%, #eceaea 100%);
+  display: block;
+  margin-top: 6px;
+  border-radius: 5px;
+  font-size: 3px;
 }
 
 .hero-copy {
   display: block;
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(16px, 1.8vw, 24px);
+  font-size: clamp(24px, 1.8vw, 34px);
   /* Increased for readability */
   line-height: 1.7;
   color: #333333;
   margin-top: clamp(20px, 3vw, 40px);
+  line-height: 3rem;
+  font-weight: 600;
 }
 
 .hero-copy-bottom {
@@ -312,10 +329,10 @@ section {
 .cta-container {
   position: relative;
   width: 100%;
-  max-width: 550px;
+  max-width: 100%;
   /* Reduced width from 800px */
   margin: 0 auto;
-  padding: 0 16px;
+  /* padding: 0 16px; */
   /* Ensure padding on mobile */
   border-radius: 0;
 }
@@ -329,13 +346,13 @@ section {
 .cta-button {
   position: relative;
   width: 100%;
-  max-width: 550px;
+  max-width: 570px;
   /* Narrower width for impact */
   margin: 0 auto;
   background-color: #ffffff;
   border: clamp(6px, 1.2vw, 12px) solid #404040;
-  border-radius: clamp(10px, 1.5vw, 16px);
-  padding: clamp(12px, 2vw, 18px) clamp(16px, 2.5vw, 32px);
+  /* border-radius: clamp(10px, 1.5vw, 16px); */
+  padding: clamp(12px, 2vw, 28px) clamp(16px, 2.5vw, 28px);
   display: block;
   text-decoration: none;
   transition: transform 0.2s ease;
@@ -350,7 +367,7 @@ section {
   /* Pixel-Match Orange Gradient */
   background: linear-gradient(to bottom, #ffb344 0%, #ff9e00 100%);
   border-radius: clamp(30px, 6vw, 80px);
-  padding: clamp(18px, 3vw, 24px) clamp(20px, 3.5vw, 48px);
+  padding: clamp(18px, 3vw, 14px) clamp(10px, 3.5vw, 28px);
   /* 3D Pressed Look instead of glow */
   box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -381,12 +398,11 @@ section {
 }
 
 .cta-text {
-  flex: 1;
   text-align: left;
 }
 
 .cta-main-text {
-  font-size: clamp(12px, 2.5vw, 32px);
+  font-size: clamp(10px, 2.5vw, 22px);
   font-weight: 700;
   color: #ffffff;
   line-height: 1.35;
@@ -433,7 +449,7 @@ section {
 
 .problem-overlay {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   /* Text stays within normal content width */
   margin: 0 auto;
   text-align: center;
@@ -776,7 +792,7 @@ section {
 
 .benefits-card {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 8px;
@@ -798,12 +814,12 @@ section {
 
 .benefits-list-content {
   width: 100%;
-  max-width: 520px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .benefits-point {
-  font-size: clamp(11px, 1.4vw, 15px);
+  font-size: clamp(20px, 1.8vw, 30px);
   font-weight: 500;
   margin-bottom: clamp(6px, 0.8vw, 8px);
   line-height: 1.6;
@@ -848,7 +864,7 @@ section {
   display: table;
   margin: 0 auto clamp(2px, 0.4vw, 4px);
   padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 30px);
-  font-size: clamp(12px, 2vw, 22px);
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 700;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -860,14 +876,14 @@ section {
 }
 
 .analysis-text-main {
-  font-size: clamp(13px, 2.2vw, 22px);
+  font-size: clamp(33px, 2.2vw, 42px);
   font-weight: 700;
   margin-bottom: clamp(6px, 1vw, 10px);
 }
 
 .analysis-list {
   list-style: none;
-  font-size: clamp(13px, 1.8vw, 18px);
+  font-size: clamp(26px, 1.8vw, 32px);
   line-height: 2.2;
   text-align: left;
   display: inline-block;
@@ -1040,7 +1056,7 @@ section {
   position: relative;
   overflow: visible;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: -1px auto 0 !important;
   /* Negative top margin to remove white gap */
 }
@@ -1060,7 +1076,7 @@ section {
 
 .mechanism-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0px 60px;
   /* Matching reference design padding */
@@ -1254,7 +1270,7 @@ h3 {
   margin-top: 0;
   z-index: 5;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -1293,7 +1309,7 @@ h3 {
 
 .future-cards-container {
   width: 100%;
-  max-width: 850px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1383,7 +1399,7 @@ h3 {
 }
 
 .future-card-list li {
-  font-size: clamp(13px, 1.8vw, 18px);
+  font-size: clamp(15px, 2vw, 22px);
   font-weight: 700;
   line-height: 1.6;
   color: #333;
@@ -1435,7 +1451,7 @@ h3 {
 .results-trust-section {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   height: auto;
   min-height: auto;
@@ -1468,7 +1484,7 @@ h3 {
   justify-content: flex-start;
   height: 100%;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -1720,7 +1736,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   /* Center everything vertically */
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -1772,7 +1788,7 @@ h3 {
   background-color: rgb(240, 238, 238);
   /* padding: 48px 0 !important; */
   width: 100%;
-  /* max-width: 1200px; */
+  /* max-width: 1100px; */
   margin: 0 auto;
   color: #ffffff;
 }
@@ -1909,7 +1925,7 @@ h3 {
   color: #ffffff;
   /* Revert to White */
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -2008,13 +2024,13 @@ h3 {
   background-color: #292929;
   padding: 24px 0 !important;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .final-message-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px 0;
 }
@@ -2070,7 +2086,7 @@ h3 {
 
 /* =========================================
    Comprehensive Responsive Breakpoints
-   Target: 1920px, 1200px, 768px, 378px
+   Target: 1920px, 1100px, 768px, 378px
    ========================================= */
 
 /* Cleaned up conflicting legacy mobile rules */
@@ -2202,8 +2218,8 @@ h3 {
   }
 }
 
-/* Desktop - 1200px and below */
-@media (max-width: 1200px) {
+/* Desktop - 1100px and below */
+@media (max-width: 1100px) {
   .container {
     max-width: 100%;
     padding: 0 clamp(20px, 2.5vw, 32px);
@@ -2235,28 +2251,28 @@ h3 {
 /* Large Desktop - 1920px and above */
 @media (min-width: 1920px) {
   .container {
-    max-width: 1200px;
+    max-width: 1100px;
   }
 
   .container-hero {
-    max-width: 1200px;
+    max-width: 1100px;
   }
 
   .hero-content {
-    max-width: 1200px;
+    max-width: 1100px;
     gap: 60px;
   }
 
   .mechanism-container {
-    max-width: 1200px;
+    max-width: 1100px;
   }
 
   .results-container {
-    max-width: 1200px;
+    max-width: 1100px;
   }
 
   .final-message-container {
-    max-width: 1200px;
+    max-width: 1100px;
   }
 }
 
@@ -2297,7 +2313,7 @@ h3 {
 
 /* =========================================
    Global Responsive Refactor
-   Target Breakpoints: 1200px, 768px, 378px
+   Target Breakpoints: 1100px, 768px, 378px
    ========================================= */
 
 /* Additional Mobile Optimizations */
