@@ -47,6 +47,10 @@ li {
   line-height: 1.6;
 }
 
+.line-nowrap {
+  white-space: nowrap;
+}
+
 h1,
 h2,
 h3 {
@@ -157,7 +161,7 @@ section {
   padding-top: 80px;
   padding-bottom: 0;
   padding-left: 80px;
-  padding-right: 0;
+  padding-right: 20px;
 }
 
 @media (max-width: 768px) {
@@ -238,6 +242,7 @@ section {
   padding-left: 20px;
   /* Reduced from 40px to bring text closer to edge/image */
   padding-right: 0;
+  z-index: 5;
 }
 
 .hero-lead {
@@ -253,50 +258,46 @@ section {
 .hero-title {
   display: block;
   margin: 0;
-  font-family: 'Song Myung', 'Noto Sans JP', serif;
-  font-size: clamp(30px, 6vw, 38px);
-  /* Increased significantly for impact */
-  line-height: 1.7;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.4;
   font-weight: 700;
   margin-top: clamp(20px, 1.5vw, 30px);
+  color: #1a1a1a;
+  position: relative;
 }
 
 .hero-underline {
   width: 100%;
-  max-width: 490px;
-  /* Fixed width to match '知らないだけです。' roughly */
-  height: clamp(2px, 0.4vw, 3px);
-  background: linear-gradient(90deg, #ff3300 0%, #ffa5a5 100%);
+  max-width: 650px;
+  /* Increased to cover nowrap title */
+  height: clamp(2px, 0.3vw, 3px);
+  background: linear-gradient(90deg, #b80407 0%, #b80407 60%, rgba(184, 4, 7, 0) 100%);
   display: block;
-  margin-top: 6px;
-  border-left: 1px solid #ffcabc;
-  border-radius: 5px;
-  font-size: 3px;
+  margin-top: 4px;
+  border-radius: 2px;
 }
 
 .hero-underline-first {
   width: 100%;
-  max-width: 490px;
-  /* Fixed width to match '知らないだけです。' roughly */
-  height: clamp(1px, 0.4vw, 2px);
-  background: linear-gradient(90deg, #939190 0%, #eceaea 100%);
+  max-width: 320px;
+  /* Increased for lead */
+  height: clamp(1px, 0.2vw, 2px);
+  background: linear-gradient(90deg, #cccccc 0%, #cccccc 50%, rgba(204, 204, 204, 0) 100%);
   display: block;
-  margin-top: 6px;
-  border-radius: 5px;
-  font-size: 3px;
+  margin-top: 4px;
+  border-radius: 1px;
 }
 
 .hero-copy {
   display: block;
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(24px, 1.8vw, 34px);
-  /* Increased for readability */
-  line-height: 1.7;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.8;
   color: #333333;
-  margin-top: clamp(20px, 3vw, 40px);
-  line-height: 3rem;
-  font-weight: 600;
+  margin-top: clamp(20px, 2.5vw, 30px);
+  font-weight: 500;
 }
 
 .hero-copy-bottom {
@@ -314,7 +315,7 @@ section {
 .hero-figure img {
   width: auto;
   max-width: 100%;
-  height: clamp(380px, 60vw, 850px);
+  height: clamp(380px, 60vw, 650px);
   /* Increased size for more impact */
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
@@ -631,7 +632,7 @@ section {
 }
 
 .problem-line-text {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: clamp(19px, 2.5vw, 34px);
   line-height: 1.5;
   color: #333;
   font-weight: 500;
@@ -683,7 +684,7 @@ section {
 }
 
 .solution-detail-text {
-  font-size: clamp(16px, 2.2vw, 22px);
+  font-size: clamp(19px, 2.2vw, 28px);
   line-height: 2;
   margin-bottom: 50px;
   color: #1a1a1a;
@@ -929,31 +930,29 @@ section {
 
 /* Bottom diagonal that visually continues into the black section */
 /* Bottom diagonal: Dark grey area rising from left to right */
-.talent-transition {
+/* Split geometric transition: Left (Black) and Right (Grey) wedges meeting in center */
+/* Clean geometric transition: Layered wedges for smooth straight edges */
+.talent-trans-left {
   position: absolute;
   left: 0;
-  bottom: 0px;
+  bottom: -1px;
   width: 100%;
-  height: 120px;
-  /* Adjust height for the angle */
+  /* Full width for a solid straight base line on the left */
+  height: clamp(140px, 18vw, 200px);
   background-color: #1a1a1a;
-  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-  /* Triangle in bottom right? No, let's try a full block with angled top */
-  /* Actually, if it's the next section background, it should be top of next section or bottom of this. 
-     Target image: Diagonal line separates image (top) and dark (bottom). 
-     Let's try: A block at the bottom of talent-banner that is dark color, clipped to have a diagonal top.
-     Polygon: Top-right (x:100, y:0) to Top-left (x:0, y:something) ? 
-     Let's assume the line creates a wedge. 
-     Let's try: 0% 100% (bottom left), 100% 20% (high on right), 100% 100% (bottom right).
-     Wait, if I want the dark area to be at the bottom...
-     Top-left of *dark shape*: 0% 100% (at bottom). Top-right of *dark shape*: 100% 0% (at top of div). Bottom-right: 100% 100%. Bottom-left: 0% 100%. 
-     This creates a triangle growing to the right.
-     Let's assume the cut is simply a diagonal line.
-  */
-  clip-path: polygon(0 80%, 100% 0, 100% 100%, 0 100%);
-  z-index: 2;
-  display: block !important;
-  /* Force show */
+  clip-path: polygon(0 0, 137% 100%, 0 100%);
+  z-index: 5;
+}
+
+.talent-trans-right {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: clamp(140px, 18vw, 200px);
+  background-color: #666666;
+  clip-path: polygon(106% 0, 101% 103%, -35% 100%);
+  z-index: 4;
 }
 
 .talent-text-top {
@@ -996,20 +995,13 @@ section {
 .experience-section {
   background-color: #1a1a1a;
   color: #f0f2f5;
-  padding: 32px 0 128px !important;
-  /* Keep bottom padding for spacing */
+  padding: clamp(60px, 10vw, 100px) 0 128px !important;
   position: relative;
+  clip-path: polygon(0 40px, 50% 0, 100% 40px, 100% 100%, 0 100%);
+  margin-top: -40px;
   text-align: center;
-  margin-top: 0;
-  /* Diagonal touch rule */
   z-index: 10;
   width: 100%;
-  /* Use clip-path on the section itself to create the diagonal top if needed, 
-     but prompt said "Diagonals touch... NO visible white gaps... Remove fake vertical spacers"
-     If the previous design used spacers for diagonals, we might need to apply clip-path to the container
-     OR verify if the image background + CSS makes it look connected.
-     For now, we strictly follow the margin-bottom: -1px and margin-top: 0 rule.
-  */
 }
 
 .exp-title-main {
@@ -1054,7 +1046,7 @@ section {
 }
 
 .text-gold {
-  color: #f7e1b5;
+  color: #ffff00;
 }
 
 .bold {
@@ -1092,27 +1084,46 @@ section {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0px 60px;
-  /* Matching reference design padding */
+  padding: 60px 60px 0 60px;
+  /* Removed bottom padding to eliminate gap below image */
 }
 
+/* Updated Mechanism Banner */
 .mechanism-banner {
   background-color: #ffffff;
-  padding: clamp(12px, 2vw, 20px) clamp(20px, 3vw, 40px);
-  /* Reduced gap above text */
-  margin-bottom: clamp(15px, 2vw, 25px);
-  transform: skewX(-2deg);
+  padding: 20px 40px;
+  margin-bottom: 25px;
   display: inline-block;
+  /* Trapezoid-like shape: Straight left, Slanted right */
+  /* Using clip-path for cleaner edges */
+  /* Top-left (0 0), Top-right (100% 0), Bottom-right (100% - 40px 100%), Bottom-left (0 100%) */
+  clip-path: polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%);
+  text-align: center;
+  width: auto;
+  min-width: 60%;
+  padding-right: 60px;
+  /* Add extra padding on right to account for slant */
+  margin-left: -60px;
+  /* Counteract container padding to touch left edge */
 }
 
 .mechanism-banner-title {
   color: #b80407;
-  font-size: clamp(24px, 4.5vw, 42px);
-  font-weight: 700;
-  line-height: 1.6;
   margin: 0;
-  transform: skewX(2deg);
-  text-align: center;
+  line-height: 1.4;
+}
+
+.mech-line-1 {
+  font-size: clamp(14px, 2vw, 24px);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.mech-line-2 {
+  font-size: clamp(20px, 4vw, 42px);
+  font-weight: 700;
+  display: block;
 }
 
 .mechanism-two-column {
@@ -1164,30 +1175,49 @@ section {
   color: #1a1a1a;
 }
 
+/* Updated Mechanism Yellow Box */
 .mechanism-yellow-box {
-  background-color: #fffacd;
-  padding: clamp(16px, 2.5vw, 24px) clamp(20px, 3vw, 32px);
-  border-radius: clamp(8px, 1.2vw, 12px);
+  background-color: #F8F492;
+  /* Matched to reference sticky-note yellow */
+  padding: 30px 50px;
+  border-radius: 20px;
   position: relative;
+  width: fit-content;
+  max-width: 1000px;
+  /* Further increased width for better layout */
+  margin: 0 auto 40px auto;
+  /* Center the box itself if needed, or left aligned in container, with bottom margin */
+  box-sizing: border-box;
 }
 
-.mechanism-yellow-box::before {
+/* Tail pointing right - Longer and Bigger */
+.mechanism-yellow-box::after {
   content: '';
   position: absolute;
-  left: clamp(-8px, -1vw, -12px);
-  top: clamp(20px, 3vw, 30px);
+  right: -55px;
+  /* Extend further right */
+  top: 25%;
   width: 0;
   height: 0;
-  border-top: clamp(8px, 1vw, 12px) solid transparent;
-  border-bottom: clamp(8px, 1vw, 12px) solid transparent;
-  border-right: clamp(10px, 1.2vw, 14px) solid #fffacd;
+  border-top: 20px solid transparent;
+  border-bottom: 40px solid transparent;
+  /* Thicker base */
+  border-left: 80px solid #F8F492;
+  /* Much longer tail */
+  transform: rotate(-10deg);
+  /* Adjust angle to point to man's head/face area */
 }
 
+/* Remove old left tail */
+/* .mechanism-yellow-box::before removed by override */
+
 .mechanism-yellow-box p {
-  font-size: clamp(16px, 2.2vw, 20px);
-  line-height: 1.7;
+  font-size: clamp(15px, 2.2vw, 15px);
+  line-height: 1.6;
   margin: 0;
   color: #1a1a1a;
+  text-align: center;
+  font-weight: 700;
 }
 
 /* Team Mechanism - Strict 2 Column */
@@ -1211,11 +1241,14 @@ section {
 }
 
 .mechanism-instructor-image {
-  width: 100%;
-  /* max-width: 450px; */
+  /* width: 100%; */
+  max-width: 450px;
   /* Reduced from 500px as requested */
   height: auto;
   object-fit: contain;
+  align-self: flex-end;
+  /* Ensure image touches bottom */
+  display: block;
 }
 
 /* Left Content Padding Rule */
@@ -1335,26 +1368,29 @@ h3 {
 
 .future-card {
   display: flex;
-  align-items: center;
-  gap: clamp(12px, 1.8vw, 20px);
-  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: nowrap;
+  position: relative;
+  margin-bottom: clamp(40px, 5vw, 60px);
 }
 
 .future-card:nth-child(even) {
   flex-direction: row;
-  /* Unified alignment to the left */
+  /* Keep same layout for both cards */
 }
 
 .future-card-image-box {
-  flex: 0 0 clamp(200px, 27vw, 320px);
-  aspect-ratio: 1 / 1;
+  flex: 0 0 clamp(209px, 20vw, 350px);
+  aspect-ratio: 8 / 5;
   border-radius: clamp(12px, 1.8vw, 20px);
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   background-color: #f7f7f7;
   position: relative;
   z-index: 2;
-  /* Sits on top of the text content */
+  margin-right: -30px;
+  margin-top: -31px;
 }
 
 .future-card-img {
@@ -1367,15 +1403,14 @@ h3 {
 /* Future Vision Base Styles */
 .future-card-content {
   flex: 1;
-  padding: clamp(20px, 3vw, 30px) clamp(20px, 3.5vw, 60px) clamp(20px, 3vw, 30px) clamp(40px, 6vw, 80px);
+  padding: clamp(24px, 3vw, 40px) clamp(24px, 3.5vw, 50px) clamp(24px, 3vw, 40px) clamp(50px, 6vw, 70px);
+  /* More left padding for overlap */
   border-radius: clamp(12px, 1.8vw, 20px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  min-height: clamp(150px, 20vw, 200px);
+  min-height: clamp(180px, 22vw, 220px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: -60px;
-  /* Pulls content under the image */
   z-index: 1;
   position: relative;
 }
@@ -1790,7 +1825,7 @@ h3 {
   font-size: clamp(16px, 2.5vw, 28px);
   font-weight: 700;
   line-height: 1.5;
-  color: #ffffff;
+  color: #ffff00;
   text-align: center;
 }
 
@@ -1874,21 +1909,20 @@ h3 {
 }
 
 .seminar-details-container {
-  width: 100%;
-  max-width: 800px;
+  /* width: 100%; */
+  max-width: 1000px;
   margin: clamp(30px, 5vw, 60px) auto 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(15px, 2.5vw, 30px);
-  /* Reduced from 30-60px */
+  gap: clamp(15px, 2.5vw, 40px);
   text-align: left;
 }
 
 .seminar-details-header {
   color: #b80407;
-  font-size: clamp(15px, 2.5vw, 32px);
+  font-size: clamp(20px, 3.5vw, 40px);
   font-weight: 900;
-  margin-bottom: clamp(16px, 2.2vw, 24px);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
   letter-spacing: 0.05em;
 }
 
@@ -1900,21 +1934,19 @@ h3 {
 
 .seminar-details-list li {
   color: #ffffff;
-  font-size: clamp(13px, 2.2vw, 22px);
+  font-size: clamp(16px, 2.8vw, 30px);
   font-weight: 700;
-  line-height: 1.4;
-  /* Reduced from 1.8 to tighten vertical spacing */
-  margin-bottom: clamp(6px, 0.8vw, 8px);
-  /* Reduced from 12-16px */
+  line-height: 1.8;
+  margin-bottom: clamp(12px, 1.5vw, 20px);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .seminar-benefit-badge {
   display: inline-block;
   color: #ffffff;
-  font-size: clamp(13px, 2.2vw, 22px);
+  font-size: clamp(16px, 2.8vw, 30px);
   font-weight: 700;
-  margin-bottom: clamp(6px, 0.8vw, 8px);
+  margin-bottom: clamp(12px, 1.5vw, 20px);
 }
 
 @media (max-width: 768px) {
@@ -1935,7 +1967,7 @@ h3 {
 
 /* Message to President Section */
 .message-president-section {
-  background-color: #000000;
+  background-color: #2c2c2e;
   /* Revert to Black */
   padding: 80px 0 !important;
   text-align: center;
@@ -2554,12 +2586,13 @@ h3 {
 .talent-banner {
   position: relative;
   width: 100%;
-  /* min-height: 250px; */
+  min-height: 250px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  padding: 60px 0px;
-  overflow: hidden;
+  padding: 80px 0px 120px;
+  /* More bottom padding for transition room */
+  overflow: visible;
 }
 
 .talent-banner::before {
@@ -2639,7 +2672,7 @@ h3 {
   transform: translateY(-40%);
   text-align: left;
   color: #fff;
-  font-size: 34px;
+  font-size: 50px;
   /* Reduced from 38px */
   font-weight: 900;
   line-height: 1.35;
