@@ -7,6 +7,11 @@ html {
     width: 100% !important;
 }
 
+.line-nowrap {
+    white-space: normal !important;
+    /* Allow wrapping on mobile */
+}
+
 .container,
 .container-hero,
 .section {
@@ -271,6 +276,7 @@ html {
     text-align: center !important;
     display: block !important;
     box-sizing: border-box !important;
+    margin-left: -10% !important;
 }
 
 .mech-line-2 {
@@ -514,6 +520,10 @@ html {
     width: auto !important;
     max-width: none !important;
     z-index: 1 !important;
+}
+
+.future-title-emphasized {
+    margin-left: -70% !important;
 }
 
 .talent-text-top {
