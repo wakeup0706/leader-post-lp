@@ -222,6 +222,7 @@ section {
 
   .hero-figure img {
     width: 100%;
+    /* margin-left: -60px !important; */
     max-width: 100%;
     height: auto;
     filter: drop-shadow(-5px 0 15px rgba(0, 0, 0, 0.1));
@@ -315,7 +316,7 @@ section {
 .hero-figure img {
   width: auto;
   max-width: 100%;
-  height: clamp(380px, 60vw, 650px);
+  height: clamp(380px, 60vw, 600px);
   /* Increased size for more impact */
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
@@ -760,7 +761,7 @@ section {
 
 /* Analysis Section Legacy (kept for safety if used elsewhere) */
 .analysis-section {
-  background-color: #ffffff;
+  background-color: #b7b8bc;
   padding: 8px 0 !important;
   text-align: center;
 }
@@ -863,7 +864,8 @@ section {
   background-color: #3a3c42;
   color: #ffffff;
   display: table;
-  margin: 0 auto clamp(2px, 0.4vw, 4px);
+  margin: 0 auto -1px;
+  /* Slight overlap to remove gap */
   padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 30px);
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 700;
@@ -957,7 +959,7 @@ section {
 
 .talent-text-top {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 400;
   margin-bottom: 12px;
   color: #000000;
@@ -969,7 +971,7 @@ section {
 
 .talent-text-bottom {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 400;
   color: #000000;
   background-color: transparent !important;
@@ -995,7 +997,7 @@ section {
 .experience-section {
   background-color: #1a1a1a;
   color: #f0f2f5;
-  padding: clamp(60px, 10vw, 100px) 0 128px !important;
+  padding: clamp(0px, 0vw, 50px) 0 8px !important;
   position: relative;
   clip-path: polygon(0 40px, 50% 0, 100% 40px, 100% 100%, 0 100%);
   margin-top: -40px;
@@ -1063,7 +1065,7 @@ section {
   overflow: visible;
   width: 100%;
   max-width: 1100px;
-  margin: -1px auto 0 !important;
+  margin: -0.9px auto 0 !important;
   /* Negative top margin to remove white gap */
 }
 
@@ -1085,7 +1087,8 @@ section {
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 60px 0 60px;
-  /* Removed bottom padding to eliminate gap below image */
+  text-align: center;
+  /* Center the banner and block contents */
 }
 
 /* Updated Mechanism Banner */
@@ -1093,18 +1096,19 @@ section {
   background-color: #ffffff;
   padding: 20px 40px;
   margin-bottom: 25px;
+  margin-left: -430px !important;
   display: inline-block;
   /* Trapezoid-like shape: Straight left, Slanted right */
   /* Using clip-path for cleaner edges */
   /* Top-left (0 0), Top-right (100% 0), Bottom-right (100% - 40px 100%), Bottom-left (0 100%) */
-  clip-path: polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, calc(89% - 40px) 100%, 0 100%);
   text-align: center;
   width: auto;
   min-width: 60%;
   padding-right: 60px;
   /* Add extra padding on right to account for slant */
-  margin-left: -60px;
-  /* Counteract container padding to touch left edge */
+  margin: 0 auto;
+  /* Center the banner itself */
 }
 
 .mechanism-banner-title {
@@ -1115,14 +1119,14 @@ section {
 
 .mech-line-1 {
   font-size: clamp(14px, 2vw, 24px);
-  font-weight: 700;
+  font-weight: 900;
   display: block;
   margin-bottom: 5px;
 }
 
 .mech-line-2 {
-  font-size: clamp(20px, 4vw, 42px);
-  font-weight: 700;
+  font-size: clamp(14px, 2vw, 24px);
+  font-weight: 900;
   display: block;
 }
 
@@ -1135,54 +1139,73 @@ section {
 
 .mechanism-left-column {
   padding-right: clamp(0px, 3vw, 0px);
-  /* padding-left: 20px; */
-  /* Added left padding as requested */
+  text-align: left;
+  /* Ensure left alignment for all text */
+  /* padding-left: clamp(20px, 5vw, 60px); */
+  /* Add padding for optical alignment */
+}
+
+.mechanism-text-content {
+  padding-left: 0;
+  /* Removed extreme offset for centering */
+  display: inline-block;
+  text-align: left;
+  /* Keep text left aligned inside its block */
 }
 
 .mechanism-intro {
-  font-size: clamp(28px, 3vw, 58px);
+  font-size: clamp(24px, 3vw, 36px);
+  /* Adjusted size to match reference */
   font-weight: 700;
   margin-bottom: clamp(12px, 2vw, 20px);
   color: #1a1a1a;
+  text-align: left;
+  margin-left: -20px;
+  /* Kept slight outdent without breaking center */
 }
 
 .mechanism-bullet-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 clamp(0px, 3vw, 30px) 0;
+  margin: 0 0 clamp(20px, 3vw, 40px) 2em;
+  /* Indent the whole list */
 }
 
 .mechanism-bullet-list li {
-  font-size: clamp(18px, 2.8vw, 34px);
-  line-height: 2;
+  font-size: clamp(18px, 2.5vw, 24px);
+  /* Scaled down slightly for better fit */
+  line-height: 1.8;
   color: #333;
-  padding-left: clamp(20px, 2.5vw, 30px);
+  padding-left: 1.5em;
   position: relative;
+  font-weight: 500;
 }
 
 .mechanism-bullet-list li::before {
-  content: '•';
+  content: '・';
+  /* Japanese style middle dot */
   position: absolute;
-  left: clamp(5px, 1vw, 10px);
+  left: 0;
   color: #333;
-  font-size: clamp(18px, 2.8vw, 24px);
+  font-weight: 700;
 }
 
 .mechanism-conclusion {
-  font-size: clamp(18px, 3vw, 26px);
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 700;
   margin-bottom: clamp(30px, 5vw, 50px);
   color: #1a1a1a;
+  text-align: left;
 }
 
 /* Updated Mechanism Yellow Box */
 .mechanism-yellow-box {
   background-color: #F8F492;
   /* Matched to reference sticky-note yellow */
-  padding: 30px 50px;
+  padding: 20px 30px;
   border-radius: 20px;
   position: relative;
-  width: fit-content;
+  /* width: fit-content; */
   max-width: 1000px;
   /* Further increased width for better layout */
   margin: 0 auto 40px auto;
@@ -1212,12 +1235,13 @@ section {
 /* .mechanism-yellow-box::before removed by override */
 
 .mechanism-yellow-box p {
-  font-size: clamp(15px, 2.2vw, 15px);
+  font-size: clamp(16px, 2.2vw, 19px);
   line-height: 1.6;
   margin: 0;
   color: #1a1a1a;
   text-align: center;
   font-weight: 700;
+  width: 550px;
 }
 
 /* Team Mechanism - Strict 2 Column */
@@ -1242,13 +1266,14 @@ section {
 
 .mechanism-instructor-image {
   /* width: 100%; */
-  max-width: 450px;
+  max-width: 410px;
   /* Reduced from 500px as requested */
   height: auto;
   object-fit: contain;
   align-self: flex-end;
   /* Ensure image touches bottom */
   display: block;
+  margin-left: -70px;
 }
 
 /* Left Content Padding Rule */
@@ -1849,7 +1874,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(30px, 5vw, 0px);
+  /* gap: clamp(30px, 5vw, 0px); */
   width: 100%;
   background: linear-gradient(180deg, #b3b4b9 0%, #9c9da1 50%, #2c2c2e 100%);
   padding-top: 16px;
@@ -1911,10 +1936,10 @@ h3 {
 .seminar-details-container {
   /* width: 100%; */
   max-width: 1000px;
-  margin: clamp(30px, 5vw, 60px) auto 0;
+  /* margin: clamp(30px, 5vw, 60px) auto 0; */
   display: flex;
   flex-direction: column;
-  gap: clamp(15px, 2.5vw, 40px);
+  /* gap: clamp(15px, 2.5vw, 40px); */
   text-align: left;
 }
 
@@ -2254,10 +2279,6 @@ h3 {
     height: clamp(80px, 12vw, 120px);
   }
 
-  /* Experience section */
-  .exp-list {
-    padding-left: clamp(10px, 2vw, 20px);
-  }
 
   /* Message section */
   .message-sparkle-icon {
@@ -2590,10 +2611,12 @@ h3 {
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  padding: 80px 0px 120px;
+  padding: 10px 0px 120px;
   /* More bottom padding for transition room */
   overflow: visible;
 }
+
+
 
 .talent-banner::before {
   content: '';

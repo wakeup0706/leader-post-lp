@@ -15,6 +15,8 @@ html {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* =========================================
@@ -238,19 +240,104 @@ html {
 .mechanism-two-column {
     display: flex !important;
     flex-direction: column !important;
-    gap: 40px !important;
+    gap: 10px !important;
 }
 
 .mechanism-banner-title {
     font-size: 22px !important;
+    /* margin-left: -20px !important; */
+}
+
+.mechanism-banner {
+    margin: 0 auto !important;
+    /* Center on mobile */
+    display: table !important;
+    margin-left: -20px !important;
+    /* Ensure it respects auto margins as a block-like element */
 }
 
 .mechanism-intro {
-    font-size: 24px !important;
+    font-size: 22px !important;
+    margin-left: 0 !important;
+    /* Reset margin for mobile centering */
+    text-align: center !important;
+    /* Center text on mobile */
+}
+
+.mechanism-text-content {
+    padding-left: 20px !important;
+    /* Reset from 240px to fit mobile */
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+    box-sizing: border-box !important;
+}
+
+.mech-line-2 {
+    margin-top: -20px !important;
+}
+
+.mechanism-bullet-list {
+    margin: 0 auto 20px !important;
+    width: fit-content !important;
+    text-align: left !important;
+    /* Keep list items left aligned */
 }
 
 .mechanism-bullet-list li {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding-left: 1.2em !important;
+}
+
+.mechanism-conclusion {
     font-size: 16px !important;
+    text-align: center !important;
+}
+
+.mechanism-yellow-box {
+    background-color: #faff6a !important;
+    /* Brighter yellow for mobile */
+    padding: 20px 5px !important;
+    border-radius: 30px !important;
+    /* Softer rounded corners */
+    /* width: 95% !important; */
+    max-width: 400px !important;
+    margin: 30px auto 40px !important;
+    /* Center the box */
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+/* Hide desktop right tail */
+.mechanism-yellow-box::after {
+    display: none !important;
+}
+
+/* New downward pointing tail for mobile */
+.mechanism-yellow-box::before {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    /* Position below the box */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid #faff6a;
+    /* Pointing down */
+    display: block !important;
+}
+
+.mechanism-yellow-box p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    width: 100% !important;
+    /* Full width on mobile */
+    /* font-weight: 700 !important; */
 }
 
 .mechanism-right-column {
@@ -295,7 +382,8 @@ html {
 }
 
 .future-main-title {
-    font-size: 24px !important;
+    font-size: 19px !important;
+    padding-bottom: 15px;
 }
 
 .future-cards-container {
@@ -412,16 +500,32 @@ html {
     position: relative !important;
 }
 
+.talent-banner {
+    min-height: 0px !important;
+}
+
 .results-man {
     position: absolute !important;
     bottom: 0 !important;
-    left: -15% !important;
+    left: 0.1% !important;
     /* Adjust horizontal position */
     height: 75% !important;
     /* Make man significantly larger */
     width: auto !important;
     max-width: none !important;
     z-index: 1 !important;
+}
+
+.talent-text-top {
+    font-size: 20px !important;
+}
+
+.text-red-bold {
+    font-size: 30px !important;
+}
+
+.talent-text-bottom {
+    font-size: 20px !important;
 }
 
 .results-badge {
@@ -443,8 +547,9 @@ html {
 }
 
 .results-text {
+    margin-left: 40px !important;
     position: absolute !important;
-    right: 16px !important;
+    /* right: 16px !important; */
     /* Anchor to right */
     /* left: auto !important; */
     /* Allow left side to be flexible */
@@ -466,6 +571,28 @@ html {
 .message-headline-line-1,
 .message-headline-line-2 {
     font-size: 22px !important;
+}
+
+.message-headline-line-1 {
+    position: relative !important;
+    display: inline-block !important;
+    padding-right: 20px !important;
+    /* Make room for the sparkle */
+}
+
+.message-sparkle-icon {
+    display: block !important;
+    position: absolute !important;
+    top: -5px !important;
+    right: 0 !important;
+    /* Bring it inside the padding */
+    width: 24px !important;
+    height: 24px !important;
+    z-index: 5 !important;
+}
+
+.message-sparkle-icon path {
+    fill: #ffffff !important;
 }
 
 .message-paragraph {
