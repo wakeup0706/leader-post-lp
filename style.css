@@ -339,7 +339,7 @@ section {
 
 .cta-white-wrapper {
   background-color: #ffffff;
-  padding: 40px 0;
+  /* padding: 40px 0; */
   width: 100%;
 }
 
@@ -899,9 +899,23 @@ section {
 /* .mechanism-chevron-top, */
 /* RE-ENABLED for triangle design */
 .experience-v-transition,
-.experience-v-footer,
-.future-v-transition {
+.experience-v-footer {
   display: none !important;
+}
+
+/* Future Vision Transition - Enabled for PC */
+.future-v-transition {
+  display: block;
+  width: 100%;
+  height: 300px;
+  background-image: url('./img_image_24.png');
+  background-size: cover;
+  background-position: center top;
+  /* Triangle pointing DOWN */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  margin-bottom: -60px;
+  position: relative;
+  z-index: 0;
 }
 
 /* Removing old ::before clip path to ensure full visibility */
@@ -1265,7 +1279,7 @@ h3 {
 /* Future Vision Section */
 .future-vision-section {
   background: linear-gradient(180deg, #9b9b9b 0%, #7a7a7a 100%);
-  padding: 0 0 40px;
+  padding: 0 0 80px;
   position: relative;
   margin-top: 0;
   z-index: 5;
@@ -1276,18 +1290,21 @@ h3 {
 
 .future-v-transition {
   width: 100%;
-  height: clamp(240px, 40vw, 480px);
+  height: clamp(200px, 40vw, 300px);
   background-image: url('./img_image_24.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
-  margin-bottom: clamp(30px, 5vw, 60px);
+  margin-bottom: clamp(10px, 2vw, 20px);
 }
 
 .future-title-area {
   text-align: center;
   margin-bottom: clamp(24px, 4vw, 48px);
+  position: relative;
+  z-index: 2;
+  /* margin-top: 120px; */
 }
 
 
@@ -1296,7 +1313,7 @@ h3 {
   font-weight: 700;
   line-height: 1.4;
   color: #000;
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 
 .future-title-emphasized {
@@ -1725,7 +1742,7 @@ h3 {
 .achievement-details-section {
   background-color: #1a1a1a;
   /* Darker, premium look */
-  padding: 60px 20px !important;
+  padding: 60px 0px !important;
   color: #ffffff;
   width: 100%;
   margin: 0 auto;
@@ -2222,7 +2239,7 @@ h3 {
 @media (max-width: 1100px) {
   .container {
     max-width: 100%;
-    padding: 0 clamp(20px, 2.5vw, 32px);
+    /* padding: 0 clamp(20px, 2.5vw, 32px); */
   }
 
   .container-hero {
@@ -2653,7 +2670,7 @@ h3 {
   .results-badge {
     top: 25%;
     /* Anchored higher for stacking */
-    left: 50%;
+    left: 60%;
     /* Center horizontally in the available space */
     transform: translate(-50%, -50%);
     width: 80px;

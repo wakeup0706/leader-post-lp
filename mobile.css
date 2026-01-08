@@ -1,0 +1,493 @@
+/* Mobile overrides - strictly for max-width 768px */
+
+/* Global Reset for Mobile */
+body,
+html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+}
+
+.container,
+.container-hero,
+.section {
+    /* padding-left: 16px !important;
+    padding-right: 16px !important; */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-wrapper {
+    height: auto !important;
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.hero-content {
+    flex-direction: row !important;
+    /* Side-by-side */
+    padding: 20px 16px 0 !important;
+    height: auto !important;
+    gap: 10px !important;
+    align-items: flex-end !important;
+    /* Align bottom so image sits on bottom */
+}
+
+.hero-text {
+    width: 60% !important;
+    /* Give text space */
+    padding: 0 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    margin-bottom: 20px !important;
+    flex-shrink: 0 !important;
+}
+
+.hero-lead {
+    font-size: 17px !important;
+    /* Smaller font to fit */
+    line-height: 1.4 !important;
+    text-align: left !important;
+}
+
+.hero-title {
+    font-size: 13px !important;
+    /* Smaller font to fit */
+    line-height: 1.4 !important;
+    margin-top: 10px !important;
+    text-align: left !important;
+}
+
+.hero-underline,
+.hero-underline-first {
+    max-width: 100% !important;
+}
+
+.hero-copy {
+    font-size: 13px !important;
+    /* Smaller font to fit */
+    line-height: 1.5 !important;
+    margin-top: 15px !important;
+    text-align: left !important;
+    max-width: 100% !important;
+}
+
+.hero-figure {
+    position: relative !important;
+    width: 40% !important;
+    /* Remaining space */
+    height: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+    margin-top: 0 !important;
+    margin-right: -10px !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-figure img {
+    height: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+}
+
+/* =========================================
+   CTA BUTTON
+   ========================================= */
+.cta-container {
+    padding: 0 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px !important;
+    border-width: 6px !important;
+    box-sizing: border-box !important;
+    /* Ensure padding/border include in width */
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.cta-inner {
+    border-radius: 40px !important;
+    padding: 16px !important;
+    flex-direction: column !important;
+    /* Stack icon and text if needed, or keep row but reduce sizes */
+    /* Let's try row but tighter, or column if too wide */
+    flex-direction: row !important;
+    gap: 10px !important;
+    justify-content: center !important;
+    /* Center the content */
+    align-items: center !important;
+}
+
+.cta-icon {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.cta-icon-text {
+    font-size: 10px !important;
+}
+
+.cta-text {
+    flex: 1 !important;
+}
+
+.cta-main-text {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+}
+
+.cta-arrow {
+    border-left-width: 16px !important;
+    margin-left: 5px !important;
+}
+
+/* =========================================
+   PROBLEM SECTION
+   ========================================= */
+.problem-section {
+    padding: 100px 0 60px !important;
+    min-height: auto !important;
+}
+
+.problem-overlay {
+    padding: 6px !important;
+}
+
+.problem-title {
+    font-size: 36px !important;
+    margin-bottom: 10px !important;
+}
+
+.problem-subtitle {
+    font-size: 24px !important;
+}
+
+.problem-card {
+    padding: 24px 16px !important;
+    margin: -40px 16px 0 !important;
+    width: auto !important;
+}
+
+.problem-item {
+    align-items: flex-start !important;
+}
+
+.problem-line-text {
+    font-size: 13px !important;
+}
+
+.problem-list-container {
+    padding: 60px 0px 0px 3px !important;
+}
+
+/* =========================================
+   SOLUTION / MECHANISM
+   ========================================= */
+.section-solution-restored {
+    padding: 40px 0px !important;
+}
+
+.solution-main-heading {
+    font-size: 28px !important;
+    margin-bottom: 30px !important;
+}
+
+.solution-sub-message {
+    font-size: 20px !important;
+    margin-bottom: 30px !important;
+}
+
+.solution-detail-text {
+    font-size: 15px !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
+
+.mechanism-item-new {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.mechanism-label-new,
+.mechanism-bullets-new .text-red-thin {
+    font-size: 20px !important;
+    text-align: center !important;
+}
+
+.solution-footer-text {
+    font-size: 18px !important;
+}
+
+/* Mechanism Two Column -> Stack */
+.mechanism-two-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+}
+
+.mechanism-banner-title {
+    font-size: 22px !important;
+}
+
+.mechanism-intro {
+    font-size: 24px !important;
+}
+
+.mechanism-bullet-list li {
+    font-size: 16px !important;
+}
+
+.mechanism-right-column {
+    justify-content: center !important;
+    margin-top: 0 !important;
+}
+
+.mechanism-instructor-image {
+    max-width: 80% !important;
+    margin: 0 auto !important;
+}
+
+/* =========================================
+   FUTURE VISION
+   ========================================= */
+.future-vision-section {
+    padding-bottom: 40px !important;
+    position: relative !important;
+}
+
+.future-v-transition {
+    display: block !important;
+    width: 100% !important;
+    height: 200px !important;
+    background-image: url('./img_image_24.png') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    /* Create a peak at the bottom (Triangle pointing DOWN) */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%) !important;
+    margin-bottom: -60px !important;
+    /* Overlap content */
+    position: relative !important;
+    z-index: 0 !important;
+}
+
+/* Push title down to sit nicely on the image */
+.future-title-area {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: 80px !important;
+    padding: 0 16px !important;
+}
+
+.future-main-title {
+    font-size: 24px !important;
+}
+
+.future-cards-container {
+    flex-direction: column !important;
+    gap: 30px !important;
+}
+
+.future-card,
+.future-card:nth-child(even) {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+}
+
+.future-card-image-box {
+    flex: none !important;
+    width: 80% !important;
+    /* Reduce size relative to container */
+    max-width: 260px !important;
+    /* Cap width */
+    height: auto !important;
+    /* Allow height to adapt */
+    /* min-height: 200px !important; */
+    /* Ensure visibility */
+    aspect-ratio: auto !important;
+    /* Remove fixed aspect ratio to fit image */
+    margin-bottom: 40px !important;
+    /* Positive margin to separate from content */
+    z-index: 2 !important;
+    border-radius: 12px !important;
+}
+
+.future-card-img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+}
+
+.future-card-content {
+    flex: none !important;
+    width: 88% !important;
+    margin-left: 0 !important;
+    padding: 30px 20px 30px !important;
+    /* Normal padding, no extra top padding */
+    min-height: auto !important;
+    z-index: 1 !important;
+    text-align: left !important;
+}
+
+.future-card-label {
+    font-size: 18px !important;
+    margin-top: 10px !important;
+}
+
+/* =========================================
+   ANALYSIS & BENEFITS & SEMINAR
+   ========================================= */
+.analysis-header {
+    margin-bottom: 20px !important;
+}
+
+.analysis-title-box {
+    font-size: 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.analysis-text-main {
+    font-size: 24px !important;
+}
+
+.analysis-list {
+    font-size: 18px !important;
+    padding-left: 0 !important;
+}
+
+.benefits-title {
+    font-size: 24px !important;
+}
+
+.benefits-point {
+    font-size: 16px !important;
+}
+
+.seminar-header {
+    flex-direction: column !important;
+}
+
+.seminar-title-group {
+    transform: scale(0.8) !important;
+    transform-origin: top center !important;
+    margin-bottom: -20px !important;
+}
+
+.seminar-details-container {
+    flex-direction: column !important;
+    gap: 30px !important;
+}
+
+.seminar-details-column {
+    width: 100% !important;
+}
+
+/* =========================================
+   RESULTS REF (The man with badge)
+   ========================================= */
+.results-ref {
+    height: 320px !important;
+    /* Increase height for better spacing */
+    padding-top: 0 !important;
+    /* Remove top padding to use absolute positioning freely */
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.results-man {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: -15% !important;
+    /* Adjust horizontal position */
+    height: 75% !important;
+    /* Make man significantly larger */
+    width: auto !important;
+    max-width: none !important;
+    z-index: 1 !important;
+}
+
+.results-badge {
+    position: absolute !important;
+    top: 120px !important;
+    /* Position from top */
+    right: 40px !important;
+    /* Position from right */
+    width: 100px !important;
+    /* Increase size */
+    height: 100px !important;
+    font-size: 14px !important;
+    z-index: 2 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50% !important;
+    /* Ensure circle shape if not already */
+}
+
+.results-text {
+    position: absolute !important;
+    right: 16px !important;
+    /* Anchor to right */
+    /* left: auto !important; */
+    /* Allow left side to be flexible */
+    bottom: 200px !important;
+    font-size: 22px !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+    max-width: 65% !important;
+    /* Restrict width to avoid covering the man on the left */
+    width: auto !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    z-index: 3 !important;
+}
+
+/* =========================================
+   MESSAGE PRESIDENT
+   ========================================= */
+.message-headline-line-1,
+.message-headline-line-2 {
+    font-size: 22px !important;
+}
+
+.message-paragraph {
+    font-size: 16px !important;
+}
+
+/* Problem Section Triangle Resize */
+.problem-v-front {
+    border-left-width: 35px !important;
+    border-right-width: 35px !important;
+    border-top-width: 25px !important;
+}
+
+.problem-v-back {
+    border-left-width: 35px !important;
+    border-right-width: 35px !important;
+    border-top-width: 25px !important;
+}
+
+.problem-v-shadow {
+    border-left-width: 35px !important;
+    border-right-width: 35px !important;
+    border-top-width: 25px !important;
+    top: 5px !important;
+}
