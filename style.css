@@ -187,7 +187,7 @@ section {
   }
 
   .hero-lead {
-    font-size: 26px !important;
+    font-size: 30px !important;
     text-align: left;
   }
 
@@ -467,7 +467,7 @@ section {
 }
 
 .problem-title {
-  font-size: clamp(54px, 4.5vw, 98px);
+  font-size: clamp(54px, 4.5vw, 85px);
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 900;
   line-height: 1.2;
@@ -479,7 +479,7 @@ section {
 }
 
 .problem-subtitle {
-  font-size: clamp(38px, 3.5vw, 76px);
+  font-size: clamp(38px, 3.5vw, 65px);
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 500;
   line-height: 1.4;
@@ -858,7 +858,9 @@ section {
 
 .analysis-header {
   margin-bottom: clamp(20px, 3vw, 32px);
+  font-size: 60px;
 }
+
 
 .analysis-title-box {
   background-color: #3a3c42;
@@ -959,7 +961,7 @@ section {
 
 .talent-text-top {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 400;
   margin-bottom: 12px;
   color: #000000;
@@ -989,7 +991,7 @@ section {
 .talent-text-bottom .text-red {
   color: #b80407;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 50px;
   /* Larger emphasis */
 }
 
@@ -1030,15 +1032,20 @@ section {
 }
 
 .exp-side-label {
-  font-size: clamp(18px, 2.6vw, 24px);
+  font-size: clamp(18px, 2.6vw, 30px);
   font-weight: 500;
   margin-bottom: clamp(10px, 1.5vw, 15px);
   line-height: 1.6;
 }
 
+.exp-side-label .text-gold {
+  font-size: clamp(28px, calc(2.6vw + 10px), 35px);
+  display: inline-block;
+}
+
 .exp-list {
   list-style: none;
-  font-size: clamp(18px, 2.4vw, 22px);
+  font-size: clamp(18px, 2.4vw, 30px);
   line-height: 2;
   padding-left: clamp(20px, 8vw, 100px);
 }
@@ -1059,7 +1066,7 @@ section {
 
 /* Team Mechanism Section */
 .team-mechanism-section {
-  background-color: #cccccc;
+  background-color: #EDF0F7;
   padding: 0;
   position: relative;
   overflow: visible;
@@ -1114,7 +1121,7 @@ section {
 .mechanism-banner-title {
   color: #b80407;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 .mech-line-1 {
@@ -1173,7 +1180,7 @@ section {
 }
 
 .mechanism-bullet-list li {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: clamp(18px, 2.5vw, 25px);
   /* Scaled down slightly for better fit */
   line-height: 1.8;
   color: #333;
@@ -1192,7 +1199,7 @@ section {
 }
 
 .mechanism-conclusion {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: clamp(18px, 2.5vw, 30px);
   font-weight: 700;
   margin-bottom: clamp(30px, 5vw, 50px);
   color: #1a1a1a;
@@ -1337,7 +1344,7 @@ h3 {
 
 /* Future Vision Section */
 .future-vision-section {
-  background: linear-gradient(180deg, #9b9b9b 0%, #7a7a7a 100%);
+  background: linear-gradient(180deg, #eeeeee 0%, #B3B4B9 100%);
   padding: 0 0 80px;
   position: relative;
   margin-top: 0;
@@ -1452,7 +1459,7 @@ h3 {
 }
 
 .future-card-label {
-  font-size: clamp(13px, 2vw, 18px);
+  font-size: clamp(13px, 2vw, 30px);
   font-weight: 700;
   color: #b80407;
   margin-bottom: clamp(10px, 1.5vw, 15px);
@@ -1478,7 +1485,7 @@ h3 {
 }
 
 .future-card-list li {
-  font-size: clamp(15px, 2vw, 22px);
+  font-size: clamp(15px, 2vw, 30px);
   font-weight: 700;
   line-height: 1.6;
   color: #333;
@@ -1520,7 +1527,7 @@ h3 {
   }
 
   .future-card-list li {
-    font-size: 14px;
+    font-size: 19 px;
     line-height: 1.5;
   }
 }
@@ -1830,7 +1837,7 @@ h3 {
 }
 
 .achievement-list li {
-  font-size: clamp(14px, 2.2vw, 24px);
+  font-size: clamp(14px, 2.2vw, 30px);
   font-weight: 700;
   line-height: 2.2;
   color: #ffffff;
@@ -1849,7 +1856,7 @@ h3 {
 }
 
 .achievement-summary-text {
-  font-size: clamp(16px, 2.5vw, 28px);
+  font-size: clamp(16px, 2.5vw, 35px);
   font-weight: 700;
   line-height: 1.5;
   color: #ffff00;
@@ -2052,6 +2059,7 @@ h3 {
 
 .message-paragraph {
   margin-bottom: clamp(18px, 2.5vw, 30px);
+  font-size: clamp(11px, 2vw, 30px);
 }
 
 .message-paragraph.mt-large {
@@ -2419,7 +2427,7 @@ h3 {
   }
 
   .hero-lead {
-    font-size: 18px !important;
+    font-size: 17px !important;
     /* Scaled down for mobile */
     line-height: 1.2;
   }

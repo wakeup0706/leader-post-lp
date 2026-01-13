@@ -263,7 +263,7 @@ html {
 
 .mechanism-intro {
     font-size: 22px !important;
-    margin-left: 0 !important;
+    margin-left: -40% !important;
     /* Reset margin for mobile centering */
     text-align: center !important;
     /* Center text on mobile */
@@ -627,4 +627,9 @@ html {
     border-right-width: 35px !important;
     border-top-width: 25px !important;
     top: 5px !important;
+}
+
+/* Experience Section Font Overrides */
+.exp-side-label .text-gold {
+    font-size: 28px !important;
 }
