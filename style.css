@@ -413,10 +413,10 @@ section {
 }
 
 .cta-highlight {
-  color: #f7ff00;
+  color: #FFFF00;
   /* Bright yellow from reference */
   font-size: inherit;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .cta-arrow {
@@ -761,7 +761,7 @@ section {
 
 /* Analysis Section Legacy (kept for safety if used elsewhere) */
 .analysis-section {
-  background-color: #b7b8bc;
+  background: radial-gradient(50% 50% at 50% 50%, #DCDDE1 0%, #B3B4B9 100%);
   padding: 8px 0 !important;
   text-align: center;
 }
