@@ -88,7 +88,8 @@ section {
   height: auto;
   min-height: unset;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: center;
   overflow: visible;
 }
 
@@ -187,7 +188,7 @@ section {
   }
 
   .hero-lead {
-    font-size: 30px !important;
+    font-size: 40px !important;
     text-align: left;
   }
 
@@ -222,6 +223,7 @@ section {
 
   .hero-figure img {
     width: 100%;
+    justify-content: center;
     /* margin-left: -60px !important; */
     max-width: 100%;
     height: auto;
@@ -314,9 +316,9 @@ section {
 }
 
 .hero-figure img {
-  width: auto;
-  max-width: 100%;
-  height: clamp(380px, 60vw, 600px);
+  width: 100%;
+  max-width: 1100px;
+  /* height: clamp(380px, 60vw, 600px); */
   /* Increased size for more impact */
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
@@ -413,10 +415,10 @@ section {
 }
 
 .cta-highlight {
-  color: #FFFF00;
+  color: #f7ff00;
   /* Bright yellow from reference */
   font-size: inherit;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .cta-arrow {
@@ -761,7 +763,7 @@ section {
 
 /* Analysis Section Legacy (kept for safety if used elsewhere) */
 .analysis-section {
-  background: radial-gradient(50% 50% at 50% 50%, #DCDDE1 0%, #B3B4B9 100%);
+  background-color: #b7b8bc;
   padding: 8px 0 !important;
   text-align: center;
 }
@@ -1485,7 +1487,7 @@ h3 {
 }
 
 .future-card-list li {
-  font-size: clamp(15px, 2vw, 30px);
+  font-size: clamp(20px, 2vw, 30px);
   font-weight: 700;
   line-height: 1.6;
   color: #333;
@@ -1837,7 +1839,7 @@ h3 {
 }
 
 .achievement-list li {
-  font-size: clamp(14px, 2.2vw, 30px);
+  font-size: clamp(20px, 2.2vw, 30px);
   font-weight: 700;
   line-height: 2.2;
   color: #ffffff;
@@ -1856,7 +1858,7 @@ h3 {
 }
 
 .achievement-summary-text {
-  font-size: clamp(16px, 2.5vw, 35px);
+  font-size: clamp(22px, 2.5vw, 35px);
   font-weight: 700;
   line-height: 1.5;
   color: #ffff00;
@@ -1901,12 +1903,12 @@ h3 {
   background-color: #3b3c41;
   padding: clamp(8px, 1vw, 10px) clamp(20px, 3.5vw, 40px);
   color: #ffffff;
-  font-size: clamp(11px, 2.5vw, 36px);
+  font-size: clamp(25px, 2.5vw, 36px);
   font-weight: 700;
   text-align: center;
   line-height: 1.6;
   width: fit-content;
-  max-width: 95%;
+  max-width: 114.5%;
   white-space: nowrap;
 }
 
@@ -1931,6 +1933,7 @@ h3 {
 .seminar-text-inline {
   display: inline-block;
   white-space: nowrap;
+  font-size: 30px;
 }
 
 .seminar-image {
@@ -1968,7 +1971,7 @@ h3 {
 
 .seminar-details-list li {
   color: #ffffff;
-  font-size: clamp(16px, 2.8vw, 30px);
+  font-size: clamp(20px, 2.8vw, 30px);
   font-weight: 700;
   line-height: 1.8;
   margin-bottom: clamp(12px, 1.5vw, 20px);
@@ -1978,7 +1981,7 @@ h3 {
 .seminar-benefit-badge {
   display: inline-block;
   color: #ffffff;
-  font-size: clamp(16px, 2.8vw, 30px);
+  font-size: clamp(20px, 2.8vw, 30px);
   font-weight: 700;
   margin-bottom: clamp(12px, 1.5vw, 20px);
 }
@@ -2052,14 +2055,14 @@ h3 {
 }
 
 .message-body-text {
-  font-size: clamp(11px, 2vw, 22px);
+  font-size: clamp(20px, 2vw, 22px);
   line-height: 2.2;
   color: #ffffff;
 }
 
 .message-paragraph {
   margin-bottom: clamp(18px, 2.5vw, 30px);
-  font-size: clamp(11px, 2vw, 30px);
+  font-size: clamp(20px, 2vw, 30px);
 }
 
 .message-paragraph.mt-large {
@@ -2196,7 +2199,7 @@ h3 {
   }
 
   .hero-figure img {
-    max-height: clamp(200px, 30vh, 350px);
+    /* max-height: clamp(200px, 30vh, 350px); */
   }
 
   /* Force Results section to stay in row for tablet (intermediate size) */
@@ -2427,7 +2430,7 @@ h3 {
   }
 
   .hero-lead {
-    font-size: 17px !important;
+    font-size: 26px !important;
     /* Scaled down for mobile */
     line-height: 1.2;
   }
@@ -2440,7 +2443,7 @@ h3 {
   }
 
   .hero-copy {
-    font-size: 14px !important;
+    font-size: 25px !important;
     /* Scaled down for readability */
     line-height: 1.6;
     margin-top: 15px;
@@ -2585,6 +2588,8 @@ h3 {
 
 /* Active State (Triggered by JS) */
 .animate-on-scroll.is-visible {
+  /* max-width: 980px; */
+  width: 100%;
   opacity: 1;
   transform: translate(0) scale(1);
 }
